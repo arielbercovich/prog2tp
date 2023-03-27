@@ -1,6 +1,8 @@
+let db = require('../db/productos');
+
 let productController = {
     index: function(req, res){
-        return res.send('Productos')
+        return res.render('index', {productos: db.lista})
     }
 };
 
