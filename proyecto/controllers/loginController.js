@@ -1,12 +1,6 @@
 let loginController = {
-    usuario: function(req, res){
-        return res.send('Usuario')
-    },
-    clave: function(req, res){
-        return res.send('Clave')
-    },
-    recordame: function(req, res){
-        return res.send('Recordame')
+    index: function(req, res){
+        return res.send('Formulario')
     }
 }
 module.exports = loginController
