@@ -1,9 +1,9 @@
 let productos = {
-   lista:[
+   lista: [
     {
-    nombre: 'Camiseta Boca:',
-    descripcion: 'Esta es una camiseta con olor a caca',
-    comentarios: "camiseta titular"
+        nombre: 'Camiseta Boca:',
+        descripcion: 'Esta es una camiseta con olor a caca',
+        comentarios: "camiseta titular"
     },
     {
     nombre: 'Camiseta River:',
