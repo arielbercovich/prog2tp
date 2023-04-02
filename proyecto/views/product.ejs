@@ -23,7 +23,9 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto:</h2> 
+			<% for(let i=0; i<productos.length; i++){%>
+			<h2 class="products-title"><%= productos[i].nombre %></h2> 
+			<%}%>
 			<p class="product-detail-description">
 				<a href="/productos/add">Editar</a>
 			</p>
@@ -32,10 +34,10 @@
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="./images/products/default-image.png" alt="" class="product-detail-img">
+					<% for(let i=0; i<productos.length; i++){%>
 					<p class="product-detail-description">
-						Descripción corta del producto. En la página principal solo se ven 2 líneas de estar descripción.Lorem ipsum dolor,
-						sit amet consectetur adipisicing elit. Tae ipsam amet eum, totam dolore libero illo unde? Consectetur dolorem neque
-						veritatis.</p>
+						<%= productos[i].descripcion %></p>
+						<%}%>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
