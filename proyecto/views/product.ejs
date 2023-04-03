@@ -23,8 +23,8 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<% for(let i=0; i<productos.length; i++){%>
-			<h2 class="products-title"><%= productos[i].nombre %></h2> 
+			<% for(let i=0; i<producto.length; i++){%>
+			<h2 class="products-title"><%= producto[i].nombre %></h2> 
 			<%}%>
 			<p class="product-detail-description">
 				<a href="/productos/add">Editar</a>
@@ -32,11 +32,12 @@
 		</div>
 		<div class="product-detail">
 			<div class="row">
+
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="./images/products/default-image.png" alt="" class="product-detail-img">
-					<% for(let i=0; i<productos.length; i++){%>
+					<% for(let i=0; i<producto.length; i++){%>
 					<p class="product-detail-description">
-						<%= productos[i].descripcion %></p>
+						<%= producto[i].descripcion %></p>
 						<%}%>
 				</article>
 				<div class="col-12 col-lg-4">
