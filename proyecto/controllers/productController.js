@@ -6,6 +6,9 @@ let productController = {
     },
     add: function (req, res){
         return res.render('product-add')
+    },
+    indice: function (req, res){
+        return res.render('index', {producto: db.lista})
     }
 };
 
