@@ -36,23 +36,23 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			
-			<% for (let produ of productos) { %>
+			<% for(let product of productos) {%>
 
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/productos/fr">
+					<a href="/productos">
 						<figure class="product-box_image">
 							<img src="images/products/default-image.png" alt="cafetera moulinex">
 						</figure>
 						<article class="product-box_data">
-							<h2>Nombre: </h2><%= product.nombre%>
+							<h2><% product.nombre%></h2>
 							<p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex</p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
 				</section>
 			</div>
-			<% } %>
+			<%} %>
 
 
 
