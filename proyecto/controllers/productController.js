@@ -8,7 +8,6 @@ let productController = {
         return res.render('product-add')
     },
     show: function (req, res){
-        
         return res.render('product', {producto: db.lista})
     }
 };
