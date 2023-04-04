@@ -40,20 +40,24 @@
 				</article>
 
 
-				<% for(let i=0; i<producto.length; i++){%>
+				<% for(let i=0; i<producto.length; i++){ %>
 					<div class="col-12 col-lg-4">
-					<section class="comments">
+					  <section class="comments">
 						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<% for(let j=0; j<producto[0].comentarios.length; j++){%>
-								<p class="user">
+						  <img src="https://via.placeholder.com/35" alt="">
+						  <div class="data">
+							<% for(let j=0; j<producto[i].comentarios.length; j++){ %>
+							  <p class="user">
 								<strong> <a href="profile.html"><%= producto[0].comentarios[j].usuario %></a> </strong>
-								 <%= producto[0].comentarios[j].texto %></p>
-								<%}%>
-							</div>
+								<%= producto[0].comentarios[j].texto %>
+							  </p>
+							<% } %>
+						  </div>
 						</article>
-						<%}%>
+					  </section>
+					</div>
+				  <% } %>
+				  
 
 				
 					</section>
