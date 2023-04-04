@@ -192,6 +192,17 @@ hr {
 
 .product-box_image {
   border-bottom: 1px solid var(--light-gray);
+  width: 500x;
+  height: 500px;
+  object-fit: contain;
+
+  
+}
+.contenedor-imagen img {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  
 }
 
 .product-box_data {
