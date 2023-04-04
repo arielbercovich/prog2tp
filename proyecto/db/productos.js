@@ -11,6 +11,12 @@ let productos = {
                     usuario: "Matias",
                     texto:"Excelente jugador con muchisimo recorrido. Lo recomiendo para cualquier club",
                 },
+               {
+                    id: 2,
+                    usuario: "agus",
+                    texto:"Emo recorrido. Lo recomiendo para cualquier" 
+                }, 
+
             ]
         },
         {

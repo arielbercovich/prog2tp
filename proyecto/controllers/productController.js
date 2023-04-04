@@ -1,6 +1,7 @@
 let db = require('../db/productos.js');
 
 let productController = {
+
     index: function(req, res){
         return res.render('index', {productos: db.lista})
     },
@@ -9,6 +10,7 @@ let productController = {
     },
     show: function (req, res){
         return res.render('product', {producto: db.lista})
+        
     }
 };
 
