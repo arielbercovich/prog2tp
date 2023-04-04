@@ -2,42 +2,50 @@ let productos = {
    lista: [
         {
             id:1,
-            nombre: 'Dario Benedetto',
-            descripcion: 'Darío Ismael Benedetto es un futbolista que juega de Delantero. Actualmente juega en el Club Atlético Boca Juniors de la Liga Profesional de Fútbol Argentino',
+            nombre: 'Darío Benedetto',
+            descripcion: 'Darío Ismael "Pipa" Benedetto es un futbolista argentino que juega de Delantero como número 9. Actualmente es propiedad del Club Atlético Boca Juniors de la Liga Profesional de Fútbol Argentino.',
             imagen: "benedetto_84f59.jpg",
+            detalle: 'Boca Juniors - Delantero Centro - 17/05/1990 - ARG',
             comentarios: [
                 {
                     id: 1,
-                    usuario: "Matias",
-                    texto:"Excelente jugador con muchisimo recorrido. Lo recomiendo para cualquier club",
+                    usuario: "Sebastián Battaglia",
+                    texto:"Excelente jugador el Pipa! Muchisima experiencia y potrero. Lo recomiendo para cualquier club, gran 9",
                 },
                {
                     id: 2,
-                    usuario: "agus",
-                    texto:"Emo recorrido. Lo recomiendo para cualquier" 
+                    usuario: "Gustavo Alfaro",
+                    texto:"Un gran referente de plantel y excelente profesional, conmigo siempre se portó de maravilla y respeto" 
                 }, 
+                {
+                    id: 3,
+                    usuario: "Guillermo Barros Schelotto",
+                    texto:"Tiene un olfato goleador marcado, cuando lo dirigí en 2017 me hizo acordar mucho al mejor Palermo. Es el nuevo ídolo de Boca" 
+                }
 
             ]
         },
         {
             id:2,
-            nombre: 'Baltazar Barcia',
-            descripcion: 'Volante de nacionalidad Uruguayo nacido el 19/02/2001 en Panda (URU). Actualmente juega en Independiente de Avellaneda. Jugó 7 partidos y convirtió 1 goles en Argentina (Primera División). Jugó 34 partidos y convirtió 2 goles en el extranjero',
+            nombre: 'Baltasar Barcia',
+            descripcion: 'Mateo Baltasar Barcia Fernández es un volante Uruguayo nacido el 19/02/2001 en Pando (URU). Actualmente juega en Independiente de Avellaneda. Se desenvuelve como mediocampista ofensivo, disputó 7 partidos y convirtió 1 goles en Argentina (Primera División), mientras que jugó 34 partidos y convirtió 2 goles en el extranjero',
             imagen: "Baltazar barcia.jpg",
+            detalle: 'Independiente - Volante Ofensivo - 19/02/2001 - URU',
             comentarios: [
                 {
                     id: 1,
-                    usuario: "Julian",
-                    texto:"Jugador con mucho potencial, soy hincha de Rentistas de Uruguay",
+                    usuario: "Mario Saralegui",
+                    texto:"Jugador con mucho potencial, lo tuve en 5ta división y sus condiciones como clásico 10 se notaban",
                 },
             ]
         },
         
         {
             id:3,
-            nombre: 'Nacho Fernandez',
-            descripcion: 'VIgnacio Martín Fernández es un futbolista argentino. Se desempeña como mediocampista y su equipo actual es River Plate de la Primera División de Argentina',
+            nombre: 'Ignacio Fernández',
+            descripcion: 'Ignacio Martín Fernández es un futbolista argentino. Se desempeña como mediocampista y su equipo actual es River Plate de la Primera División de Argentina',
             imagen: "nacho fernandez.png",
+            detalle: 'River Plate - Mediocampista Ofensivo - 12/01/1990 - ARG',
             comentarios: [
                 {
                     id: 1,
@@ -50,8 +58,9 @@ let productos = {
         {
             id:4,
             nombre: 'Lisandro Lopez',
-            descripcion: 'Lisandro López es un futbolista] argentino que se desempeña como delantero en el Club Atlético Sarmiento de la Primera División de Argentina.',
+            descripcion: 'Lisandro López es un futbolista argentino que se desempeña como delantero en el Club Atlético Sarmiento de la Primera División de Argentina.',
             imagen: "lisandro lopez.jpg",
+            detalle: 'Sarmiento - Delantero Centro - 02/03/1983 - ARG',
             comentarios: [
                 {
                     id: 1,
@@ -66,6 +75,7 @@ let productos = {
             nombre: 'Vicente Taborda',
             descripcion: 'Lisandro López es un futbolista] argentino que se desempeña como delantero en el Club Atlético Sarmiento de la Primera División de Argentina.',
             imagen: "taborda.jpeg",
+            detalle: 'Platense - Volante Ofensivo - 22/05/2001 - ARG',
             comentarios: [
                 {
                     id: 1,
@@ -81,6 +91,7 @@ let productos = {
             nombre: 'Gabriel Arias',
             descripcion: 'Gabriel Arias Arroyo es un futbolista chileno nacido en Argentina. Juega como arquero en Racing Club de la Primera División de Argentina y es internacional con la selección de Chile.',
             imagen: "880_arias.jpg",
+            detalle: 'Racing - Arquero - 02/03/1990 - CHI',
             comentarios: [
                 {
                     id: 1,
@@ -95,6 +106,7 @@ let productos = {
             nombre: 'Mateo Retegui',
             descripcion: 'Mateo Retegui es un futbolista profesional que juega como centrodelantero en el Club Atlético Tigre de la Liga Profesional argentina. Nacido y criado en Argentina de padres argentinos, siendo su abuelo materno italiano, es internacional absoluto con la selección de Italia.',
             imagen: "retegui.jpeg",
+            detalle: 'Tigre - Delantero Centro - 07/10/2000 - ITA',
             comentarios: [
                 {
                     id: 1,
@@ -106,9 +118,10 @@ let productos = {
 
         {
             id:8,
-            nombre: 'Jose sand',
+            nombre: 'José Sand',
             descripcion: 'José Gustavo Sand ​es un futbolista profesional argentino que se desempeña como delantero en el Club Atlético Lanús, de la Primera División de Argentina. Es el máximo goleador en la historia de Lanús, con 170 goles y uno de sus ídolos históricos',
             imagen: "pepe sand.jpg",
+            detalle: 'Lanus - Delantero Centro - 02/03/1980 - ARG',
             comentarios: [
                 {
                     id: 1,
@@ -119,9 +132,10 @@ let productos = {
         },
         {
             id:9,
-            nombre: 'Fede Girotti',
+            nombre: 'Federico Girotti',
             descripcion: 'Federico Girotti es un futbolista profesional argentino que se desempeña en la posición de delantero y actualmente juega en el Club Atlético Talleres de la Primera División de Argentina',
             imagen: "girotti.png",
+            detalle: 'Talleres - Delantero Centro - 02/03/1999 - ARG',
             comentarios: [
                 {
                     id: 1,
@@ -136,6 +150,7 @@ let productos = {
             nombre: 'German Salort',
             descripcion: 'Germán Guillermo Salort es un futbolista argentino. Juega de Arquero y su equipo actual es Comunicaciones, de la Primera Nacional',
             imagen: "German salort.jpg",
+            detalle: 'Comunicaciones - Arquero - 01/03/1999 - ARG',
             comentarios: [
                 {
                     id: 1,

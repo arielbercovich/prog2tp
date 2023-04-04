@@ -27,6 +27,16 @@ app.use('/users', usersRouter);
 app.use('/registro', registroRouter);
 app.use('/login', loginRouter);
 app.use('/productos', productosRouter);
+// app.post('/formulario', (req, res)=>{
+//   usuario = {
+//     email: req.body.email,
+//     usuario: req.body.usuario,
+//     contrasena: req.body.contrasena,
+//     fechaNacimiento: req.body.fechaNacimiento,
+//     nroDocumento: req.body.nroDocumento,
+//     fotoPerfil: req.body.fotoPerfil
+//   }
+// })
 
 
 // catch 404 and forward to error handler
