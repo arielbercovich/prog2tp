@@ -302,21 +302,6 @@ let productos = {
                 },
             ]
         },
-
-        {
-            id:8,
-            nombre: 'José Sand',
-            descripcion: 'José Gustavo Sand ​es un futbolista profesional argentino que se desempeña como delantero en el Club Atlético Lanús, de la Primera División de Argentina. Es el máximo goleador en la historia de Lanús, con 170 goles y uno de sus ídolos históricos',
-            imagen: "pepe sand.jpg",
-            detalle: 'Lanus - Delantero Centro - 02/03/1980 - ARG',
-            comentarios: [
-                {
-                    id: 1,
-                    usuario: "Julian",
-                    texto:"Maximo goleador historico",
-                },
-            ]
-        },
         {
             id:9,
             nombre: 'Federico Girotti',
