@@ -24,12 +24,16 @@ body {
   min-height: 100vh;
   margin: 0;
   font-size: 10px;
+  /* background: linear-gradient(white, lightblue); */
+  background-color: #B6A78C;
+
 }
 
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color: var(--light-gray);
+  /* background-color: var(--light-gray); */
+  background-color: #B6A78C;
 }
 
 ul,
@@ -75,6 +79,23 @@ hr {
 .main-header_credit-link {
   display: block;
 }
+
+.titulo-container{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  padding-right: 450px;
+  margin-top: 20px;
+
+}
+.tituloGeneral{
+  font-family: 'Anton', sans-serif;
+  /* position: fixed; */
+  
+}
+
 
 .main-header_credit-link {
   font-size: 1.5em;
