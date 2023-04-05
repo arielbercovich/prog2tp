@@ -32,27 +32,92 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Novedades</h2>
+				
 				<p class="products-title">
-					<a href="/productos/add">Agregar Productos</a>
+					ARQUEROS
 				</p>
 			</div>
 			<!-- Show the "ultimos" products -->
 			
 			
 
-			<% for(let i=0; i<productos.length; i++){%>
+			<% for(let i=0; i<arqueros.length; i++){%>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="/productos">
 						<div class="contenedor-imagen">
 			
-							<img class="product-box_image"src="/images/products/<%= productos[i].imagen %>" alt="Jugador">
+							<img class="product-box_image"src="/images/products/<%= arqueros[i].imagen %>" alt="Jugador">
 
 						</div>
 						<article class="product-box_data">
-							<h2><%= productos[i].nombre %></h2>
-							<p><%= productos[i].detalle %></p>
+							<h2><%= arqueros[i].nombre %></h2>
+							<p><%= arqueros[i].detalle %></p>
+							
+						</article>
+					</a>
+				</section>
+			</div>
+			<%}%>
+		</div>
+	</div>
+
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				
+				<p class="products-title">
+					VOLANTES
+				</p>
+			</div>
+			<!-- Show the "ultimos" products -->
+			
+			
+
+			<% for(let i=0; i<volantes.length; i++){%>
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="/productos">
+						<div class="contenedor-imagen">
+			
+							<img class="product-box_image"src="/images/products/<%= volantes[i].imagen %>" alt="Jugador">
+
+						</div>
+						<article class="product-box_data">
+							<h2><%= volantes[i].nombre %></h2>
+							<p><%= volantes[i].detalle %></p>
+							
+						</article>
+					</a>
+				</section>
+			</div>
+			<%}%>
+		</div>
+	</div>
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				
+				<p class="products-title">
+					DELANTEROS
+				</p>
+			</div>
+			<!-- Show the "ultimos" products -->
+			
+			
+
+			<% for(let i=0; i<delanteros.length; i++){%>
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="/productos">
+						<div class="contenedor-imagen">
+			
+							<img class="product-box_image"src="/images/products/<%= delanteros[i].imagen %>" alt="Jugador">
+
+						</div>
+						<article class="product-box_data">
+							<h2><%= delanteros[i].nombre %></h2>
+							<p><%= delanteros[i].detalle %></p>
 							
 						</article>
 					</a>
