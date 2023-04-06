@@ -4,7 +4,7 @@ let productos = {
             id:6,
             nombre: 'Gabriel Arias',
             descripcion: 'Gabriel Arias Arroyo es un futbolista chileno nacido en Argentina. Juega como arquero en Racing Club de la Primera División de Argentina y es internacional con la selección de Chile.',
-            imagen: "880_arias.jpg",
+            imagen: "arias.png",
             detalle: 'Racing - Arquero - 02/03/1990 - CHI',
             comentarios: [
                 {
@@ -19,7 +19,7 @@ let productos = {
             id:10,
             nombre: 'German Salort',
             descripcion: 'Germán Guillermo Salort es un futbolista argentino. Juega de Arquero y su equipo actual es Comunicaciones, de la Primera Nacional',
-            imagen: "German salort.jpg",
+            imagen: "salort.png",
             detalle: 'Comunicaciones - Arquero - 22/2/2000 - ARG',
             comentarios: [
                 {
