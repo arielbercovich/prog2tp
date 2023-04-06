@@ -34,6 +34,7 @@ body {
   font-weight: 300;
   /* background-color: var(--light-gray); */
   background-color: #B6A78C;
+  
 }
 
 ul,
@@ -196,7 +197,8 @@ hr {
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: var(--gray);
+  color: black;
+  font-weight: bold;
 }
 
 .product-box {
