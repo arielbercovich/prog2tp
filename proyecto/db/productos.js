@@ -123,7 +123,7 @@ let productos = {
             id:2,
             nombre: 'Baltasar Barcia',
             descripcion: 'Mateo Baltasar Barcia Fernández es un volante Uruguayo nacido el 19/02/2001 en Pando (URU). Actualmente juega en Independiente de Avellaneda. Se desenvuelve como mediocampista ofensivo, disputó 7 partidos y convirtió 1 goles en Argentina (Primera División), mientras que jugó 34 partidos y convirtió 2 goles en el extranjero',
-            imagen: "Baltazar barcia.jpg",
+            imagen: "baltasar.png",
             detalle: 'Independiente - Volante Ofensivo - 19/02/2001 - URU',
             comentarios: [
                 {
@@ -150,10 +150,10 @@ let productos = {
         },
         {
                 id:5,
-                nombre: 'Vicente Taborda',
+                nombre: 'Federico Redondo',
                 descripcion: 'Lisandro López es un futbolista] argentino que se desempeña como delantero en el Club Atlético Sarmiento de la Primera División de Argentina.',
-                imagen: "taborda.jpeg",
-                detalle: 'Platense - Volante Ofensivo - 22/05/2001 - ARG',
+                imagen: "redondo.png",
+                detalle: 'Argentinos Juniors - Volante - 22/05/2003 - ARG',
                 comentarios: [
                     {
                         id: 1,
@@ -182,7 +182,7 @@ let productos = {
             id:1,
             nombre: 'Darío Benedetto',
             descripcion: 'Darío Ismael "Pipa" Benedetto es un futbolista argentino que juega de Delantero como número 9. Actualmente es propiedad del Club Atlético Boca Juniors de la Liga Profesional de Fútbol Argentino.',
-            imagen: "benedetto_84f59.jpg",
+            imagen: "benedetto.png",
             detalle: 'Boca Juniors - Delantero Centro - 17/05/1990 - ARG',
             comentarios: [
                 {
@@ -207,7 +207,7 @@ let productos = {
             id:4,
             nombre: 'Lisandro Lopez',
             descripcion: 'Lisandro López es un futbolista argentino que se desempeña como delantero en el Club Atlético Sarmiento de la Primera División de Argentina.',
-            imagen: "lisandro lopez.jpg",
+            imagen: "licha.png",
             detalle: 'Sarmiento - Delantero Centro - 02/03/1983 - ARG',
             comentarios: [
                 {
@@ -221,7 +221,7 @@ let productos = {
             id:7,
             nombre: 'Mateo Retegui',
             descripcion: 'Mateo Retegui es un futbolista profesional que juega como centrodelantero en el Club Atlético Tigre de la Liga Profesional argentina. Nacido y criado en Argentina de padres argentinos, siendo su abuelo materno italiano, es internacional absoluto con la selección de Italia.',
-            imagen: "retegui.jpeg",
+            imagen: "retegui.png",
             detalle: 'Tigre - Delantero Centro - 07/10/2000 - ITA',
             comentarios: [
                 {
