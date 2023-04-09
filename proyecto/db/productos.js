@@ -123,11 +123,7 @@ let productos = {
             id:2,
             nombre: 'Baltasar Barcia',
             descripcion: 'Mateo Baltasar Barcia Fernández es un volante Uruguayo nacido el 19/02/2001 en Pando (URU). Actualmente juega en Independiente de Avellaneda. Se desenvuelve como mediocampista ofensivo, disputó 7 partidos y convirtió 1 goles en Argentina (Primera División), mientras que jugó 34 partidos y convirtió 2 goles en el extranjero',
-<<<<<<< HEAD
             imagen: "Baltazar.png",
-=======
-            imagen: "baltasar.png",
->>>>>>> 8fdded12a602f833c814a264ff3e4145dca1e1fe
             detalle: 'Independiente - Volante Ofensivo - 19/02/2001 - URU',
             comentarios: [
                 {
@@ -154,17 +150,10 @@ let productos = {
         },
         {
                 id:5,
-<<<<<<< HEAD
-                nombre: 'Vicente Taborda',
-                descripcion: 'Lisandro López es un futbolista argentino que se desempeña como delantero en el Club Atlético Sarmiento de la Primera División de Argentina.',
-                imagen: "taborda.png",
-                detalle: 'Platense - Volante Ofensivo - 22/05/2001 - ARG',
-=======
                 nombre: 'Federico Redondo',
                 descripcion: 'Lisandro López es un futbolista] argentino que se desempeña como delantero en el Club Atlético Sarmiento de la Primera División de Argentina.',
                 imagen: "redondo.png",
                 detalle: 'Argentinos Juniors - Volante - 22/05/2003 - ARG',
->>>>>>> 8fdded12a602f833c814a264ff3e4145dca1e1fe
                 comentarios: [
                     {
                         id: 1,
@@ -218,11 +207,7 @@ let productos = {
             id:4,
             nombre: 'Lisandro Lopez',
             descripcion: 'Lisandro López es un futbolista argentino que se desempeña como delantero en el Club Atlético Sarmiento de la Primera División de Argentina.',
-<<<<<<< HEAD
             imagen: "lisandro.png",
-=======
-            imagen: "licha.png",
->>>>>>> 8fdded12a602f833c814a264ff3e4145dca1e1fe
             detalle: 'Sarmiento - Delantero Centro - 02/03/1983 - ARG',
             comentarios: [
                 {
