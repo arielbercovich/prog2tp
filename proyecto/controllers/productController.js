@@ -16,6 +16,7 @@ let productController = {
 
 
     show: function (req, res){
+        //return res.send(db.delanteros[0]);
         return res.render('product', {producto: db.delanteros})
         
     }
