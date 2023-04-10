@@ -44,7 +44,7 @@
 			<% for(let i=0; i<arqueros.length; i++){%>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/productos/id/:id">
+					<a href="/productos/id/<%= arqueros[i].id%>">
 						<div class="contenedor-imagen">
 			
 							<img class="product-box_image"src="/images/products/<%= arqueros[i].imagen %>" alt="Jugador">

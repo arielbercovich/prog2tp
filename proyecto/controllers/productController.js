@@ -10,18 +10,19 @@ let productController = {
         return res.render('product-add')
     },
     product: function (req, res){
-        let lista = []
+        
+        return res.render('product', {nombre: lista[0].nombre, descripcion: lista[0].descripcion, imagen: lista[0].imagen, comentarios: lista[0].comentarios})
+    }, 
+    show: function (req, res){
+        
+        let lista = null;
         let info = dbA.listaa
         for (let i =0; i< info.length; i++){
             if (info[i].id == req.params.id){
-                lista.push(info[i])
+                lista = info[i]
             }
         }
-        return res.render('product', {nombre: lista[0].nombre, descripcion: lista[0].descripcion, imagen: lista[0].imagen})
-    }, 
-    show: function (req, res){
-        //return res.send(db.delanteros[0]);
-        return res.render('product', {producto: db.delanteros})
+        return res.render('product', {nombre: lista.nombre, descripcion: lista.descripcion, imagen: lista.imagen, comentarios: lista.comentarios})
         
     },
 };

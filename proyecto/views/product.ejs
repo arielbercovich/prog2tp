@@ -10,9 +10,9 @@
 	<!-- Font Awesome Stylesheet -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="./css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
 	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="./css/app.css">
+	<link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
 	<!-- Header -->
@@ -46,12 +46,13 @@
 						  <img src="https://via.placeholder.com/35" alt="">
 						  <div class="data">
 							<h2>Comentarios:</h2>
-							<% for(let j=0; j<producto[0].comentarios.length; j++){ %>
+							<% for (let i=0; i< comentarios.length; i ++) { %>
 							  <p class="user">
-								<strong> <a href="profile.html"><%= producto[0].comentarios[j].usuario %></a> </strong>
-								<%= producto[0].comentarios[j].texto %>
+								<strong> <a href="profile.html"><%= comentarios[i].usuario %> </a> </strong>
+								<%= comentarios[i].texto %>
+						
 							  </p>
-							<% } %>
+							  <% } %>
 						  </div>
 						</article>
 					  </section>
