@@ -8,6 +8,13 @@ let productController = {
     add: function (req, res){
         return res.render('product-add')
     },
+    // product: function (req, res){
+    //     let info = db.lista
+    //     // let idProducto = req.params.info.id
+    //     return res.render('product')
+    // }
+
+
     show: function (req, res){
         return res.render('product', {producto: db.delanteros})
         
