@@ -25,21 +25,21 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 	
-			<h2 class="products-title"><%= producto[0].nombre %></h2> 
+			<h2 class="products-title"><%= nombre %></h2> 
 			
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="/images/products/<%= producto[0].imagen %>"" alt="" class="product-detail-img">
+					<img src="/images/products/<%= imagen %>" alt="" class="product-detail-img">
 					<h2>Descripción:</h2>
 					<p class="product-detail-description">
-						<%= producto[0].descripcion %></p>
+						<%= descripcion %></p>
 						
 				</article>
 
 
-				<% for(let i=0; i<producto.length; i++){ %>
+				<% for(let i=0; i <producto.length; i++){ %>
 					<div class="col-12 col-lg-4">
 					  <section class="comments">
 						<article>
