@@ -20,6 +20,7 @@ let productController = {
         return res.render('product', {nombre: lista[0].nombre, descripcion: lista[0].descripcion, imagen: lista[0].imagen})
     }, 
     show: function (req, res){
+        //return res.send(db.delanteros[0]);
         return res.render('product', {producto: db.delanteros})
         
     },

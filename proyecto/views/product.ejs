@@ -39,14 +39,14 @@
 				</article>
 
 
-				<% for(let i=0; i <producto.length; i++){ %>
+				
 					<div class="col-12 col-lg-4">
 					  <section class="comments">
 						<article>
 						  <img src="https://via.placeholder.com/35" alt="">
 						  <div class="data">
 							<h2>Comentarios:</h2>
-							<% for(let j=0; j<producto[i].comentarios.length; j++){ %>
+							<% for(let j=0; j<producto[0].comentarios.length; j++){ %>
 							  <p class="user">
 								<strong> <a href="profile.html"><%= producto[0].comentarios[j].usuario %></a> </strong>
 								<%= producto[0].comentarios[j].texto %>
@@ -56,12 +56,12 @@
 						</article>
 					  </section>
 					</div>
-				  <% } %>
+				  
 				  
 
 				
 					</section>
-					<form class="form" action="./" method='GET'>
+					<form class="form" action="/" method='GET'>
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
