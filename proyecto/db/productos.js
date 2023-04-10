@@ -123,11 +123,7 @@ let productos = {
             id:2,
             nombre: 'Baltasar Barcia',
             descripcion: 'Mateo Baltasar Barcia Fernández es un volante Uruguayo nacido el 19/02/2001 en Pando (URU). Actualmente juega en Independiente de Avellaneda. Se desenvuelve como mediocampista ofensivo, disputó 7 partidos y convirtió 1 goles en Argentina (Primera División), mientras que jugó 34 partidos y convirtió 2 goles en el extranjero',
-<<<<<<< HEAD
             imagen: "baltasar.png",
-=======
-            imagen: "Baltazar.png",
->>>>>>> ea0c152faf1ea6718d8bae5a5061becc4a653d02
             detalle: 'Independiente - Volante Ofensivo - 19/02/2001 - URU',
             comentarios: [
                 {
@@ -211,11 +207,7 @@ let productos = {
             id:4,
             nombre: 'Lisandro Lopez',
             descripcion: 'Lisandro López es un futbolista argentino que se desempeña como delantero en el Club Atlético Sarmiento de la Primera División de Argentina.',
-<<<<<<< HEAD
             imagen: "licha.png",
-=======
-            imagen: "lisandro.png",
->>>>>>> ea0c152faf1ea6718d8bae5a5061becc4a653d02
             detalle: 'Sarmiento - Delantero Centro - 02/03/1983 - ARG',
             comentarios: [
                 {
