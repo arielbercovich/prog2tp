@@ -1,5 +1,5 @@
 module.exports = function (sequelize, dataTypes){
-    let alias = "Producto";
+    let alias = "Productos";
     let cols = {
         id: {
             primaryKey: true,
@@ -26,12 +26,13 @@ module.exports = function (sequelize, dataTypes){
         },
     }
 
-    let conf = {
-        tableName: 'productos'
+    let config = {
+        tableName: 'productos',
+        timestamps: true
     }
 
 
-    let Producto = sequelize.define(alias,cols,conf);
+    let Producto = sequelize.define(alias,cols,config);
    
     Producto.associate = function (models){
         Producto.hasMany(models.Comentario,{

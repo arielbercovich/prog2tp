@@ -27,7 +27,8 @@ module.exports = function (sequelize, dataTypes){
     }
 
     let conf = {
-        tableName: 'comentarios'
+        tableName: 'comentarios',
+        timestamps: true
     }
 
 
@@ -46,7 +47,5 @@ module.exports = function (sequelize, dataTypes){
     }
 
 
-    
-    
     return Comentario; 
 }

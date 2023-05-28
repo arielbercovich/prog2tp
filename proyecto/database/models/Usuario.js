@@ -32,12 +32,13 @@ module.exports = function (sequelize, dataTypes){
         },
     }
 
-    let conf = {
-        tableName: 'usuarios'
+    let config = {
+        tableName: 'usuarios',
+        timestamps: true
     }
 
 
-    let Usuario = sequelize.define(alias,cols,conf);
+    let Usuario = sequelize.define(alias,cols,config);
     
     Usuario.associate= function (models){
         Usuario.hasMany(models.Comentario,{

@@ -1,5 +1,6 @@
 let db = require('../db/productos.js');
 let dbA = require('../db/prod.js')
+let mod = require('../database/models')
 
 let productController = {
 
@@ -24,7 +25,17 @@ let productController = {
         }
         return res.render('product', {nombre: lista.nombre, descripcion: lista.descripcion, imagen: lista.imagen, comentarios: lista.comentarios})
         
-    },
+   
+
+        
+    }, 
+    show: function(req, res): { // ver donde va
+            mod.Productos.findAll()
+                .then(function(productos)){
+                    res.render("Listado de Jugadores", {productos:productos})
+         }
+    }
+
 };
 
 module.exports = productController;
