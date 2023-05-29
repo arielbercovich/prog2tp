@@ -1,6 +1,6 @@
-const db = require('../database/models');
 let db = require('../database/models')
 let op = db.Sequelize.Op;
+let bcrypt= require("bcryptjs");
 
 
 
@@ -10,17 +10,17 @@ let registroController = {
     },
     store: function(req, res){
         let form = req.body
-        let usuario = {
+        let nuevo = {
             email: form.email,
-            nombre: form.user,
-            contrasena: form.contrasena,
+            usuario: form.usuario,
+            contrasena: bcrypt.hashSync(form.contrasena),
+            fechaNacimiento: form.fechaNacimiento,
+            createdAt: new Date()
         }
-        db.Usuario.create(usuario)
-            .then(function(usuarioCreado) {
+        db.Usuario.create(nuevo)
+            .then(function(newUser){
+                console.log(newUser);
                 return res.redirect('/')
-            })
-            .catch(function(error){
-                console.log(error)
             })
     }
 

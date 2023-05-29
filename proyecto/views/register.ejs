@@ -37,25 +37,16 @@
 			//////////////// -->
 			<form method="POST" action="/login/profile">
 				<label>Email:</label>
-				<input type="email" name="email" ><br>
+				<input type="email" name="email" required ><br>
 			  
 				<label>Usuario:</label>
 				<input type="text" name="usuario" ><br>
 			  
 				<label>Contraseña:</label>
-				<input type="password" name="contrasena" ><br>
+				<input type="password" name="contrasena" required minlength=3 ><br>
 			  
 				<label>Fecha de nacimiento:</label>
 				<input type="date" name="fechaNacimiento" ><br>
-			  
-				<label>Número de documento:</label>
-				<input type="number" name="nroDocumento" ><br>
-			  
-				<label>Foto de perfil:</label>
-				<input type="" name="fotoPerfil" ><br>
-
-				<label>Texto para imagen de perfil</label>
-				<input type="" name="textoimagen" ><br>
 			  
 				<button type="submit">Registrarse</button>
 			  </form>
