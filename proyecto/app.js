@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(
   {
     secret: 'muchachos', // texto para armar el algoritmo
-    saveUnitialized: true,
+    saveUninitialized: true,
     resave: false,
 
   }
