@@ -1,5 +1,8 @@
 let db = require('../db/usuario.js')
 let fav = require('../db/productos.js');
+let db = require('../database/models')
+let op = db.Sequelize.Op;
+
 let loginController = {
     index: function(req, res){
         return res.render('login')
@@ -9,6 +12,12 @@ let loginController = {
     },
     edit: function(req, res){
         return res.render('profile-edit')
+    },
+    show: function(req, res){
+        //buscar datos de db
+        //ponerlos en sesion
+        //agregar cookie para que lo recuerde
     }
+
 }
 module.exports = loginController
