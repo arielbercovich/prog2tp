@@ -9,6 +9,8 @@ var usersRouter = require('./routes/users');
 let registroRouter = require('./routes/registro');
 let loginRouter = require('./routes/login');
 let productosRouter = require('./routes/productos');
+
+let session = require('express-session');
 // let profileRouter = require('./routes/profile');
 
 var app = express();
@@ -22,6 +24,26 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session(
+  {
+    secret: 'muchachos', // texto para armar el algoritmo
+    saveUninitialized: true,
+    resave: false,
+
+  }
+));
+
+// pasar datos de session a las vistas. Un codigo que se ejecute todo el tiempo. Usaremos un middleware de apps
+app.use(function(req, res, next){
+  if(req.session.user != undefined){
+    res.locals.user = req.session.user
+    return next();
+  }
+  return next(); //sirve para continuar con el codigo y que no se frene con la funcion
+})
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

@@ -19,6 +19,9 @@
 <body>
 
 	<!-- Header -->
+	<% if (locals.user != undefined) {%>
+	<p>Bienvenido <%= locals.user.userName %></p>
+	<% } %>
 	<%- include('partials/header') %>
 
 	<!-- /Header -->

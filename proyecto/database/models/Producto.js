@@ -16,7 +16,7 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.STRING(100)
         },
         createdAt:{
-            type: dataType.DATE
+            type: dataTypes.DATE
         }, 
         updatedAt:{
             type: dataTypes.DATE
@@ -34,17 +34,17 @@ module.exports = function (sequelize, dataTypes){
 
     let Producto = sequelize.define(alias,cols,config);
    
-    Producto.associate = function (models){
-        Producto.hasMany(models.Comentario,{
-            as:'comentario',
-            foreignKey:'id_post',
+    // Producto.associate = function (models){
+    //     Producto.hasMany(models.Comentario,{
+    //         as:'comentario',
+    //         foreignKey:'id_post',
 
-        })
-        Producto.belongsTo(models.Usuario,{
-            as:'usuario',
-            foreignKey:'id_usuario',
-        })
-    }
+    //     })
+    //     Producto.belongsTo(models.Usuario,{
+    //         as:'usuario',
+    //         foreignKey:'id_usuario',
+    //     })
+    // }
 
 
     

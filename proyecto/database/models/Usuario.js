@@ -22,7 +22,7 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.INTEGER
         },
         createdAt:{
-            type: dataType.DATE
+            type: dataTypes.DATE
         }, 
         updatedAt:{
             type: dataTypes.DATE
@@ -45,7 +45,7 @@ module.exports = function (sequelize, dataTypes){
             as: 'comentario', 
             foreignKey:'id_usuario', 
 
-        })
+        });
         Usuario.hasMany(models.Producto,{
             as: 'producto',
             foreignKey:'id_usuario',
