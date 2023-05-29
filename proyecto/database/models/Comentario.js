@@ -16,7 +16,7 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.TEXT
         },
         createdAt:{
-            type: dataType.DATE
+            type: dataTypes.DATE
         }, 
         updatedAt:{
             type: dataTypes.DATE
@@ -37,13 +37,13 @@ module.exports = function (sequelize, dataTypes){
     Comentario.associate= function (models){
         Comentario.belongsTo(models.Usuario, {
             as: 'usuario',
-            foreignKey: 'id_usuario',
-        })
-        Comentario.belongTo(models.Producto,{
-            as: 'producto',
-            foreignKey: 'id_post',
+            foreignKey: 'id_usuario'
+        });
+        // Comentario.belongsTo(models.Producto,{
+        //     as: 'producto',
+        //     foreignKey: 'id_post',
 
-        })
+        // })
     }
 
 

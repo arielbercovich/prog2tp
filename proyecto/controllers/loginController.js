@@ -17,9 +17,9 @@ let loginController = {
 
 
         // return res.send(req.session){
-            email: 'traer de base de datos',
-            userName: 'traer de base de datos'
-        }
+            // email: 'traer de base de datos',
+            // userName: 'traer de base de datos'
+        // }
         //y si el usuario quiere, agregar la cookie para que lo recuerde
 
     // },
