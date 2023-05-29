@@ -1,5 +1,8 @@
 let db = require('../db/usuario.js')
 let fav = require('../db/productos.js');
+let db = require('../database/models')
+let op = db.Sequelize.Op;
+
 let loginController = {
     index: function(req, res){
         // si el user esta logueado, redirigirlo a home
@@ -28,6 +31,17 @@ let loginController = {
     },
     edit: function(req, res){
         return res.render('profile-edit')
+    },
+    show: function(req, res){
+        let form = req.body
+        db.Usuario.findOne({
+            where: {email: email}
+        })
+          .then  
+        //buscar datos de db
+        //ponerlos en sesion
+        //agregar cookie para que lo recuerde
     }
+
 }
 module.exports = loginController

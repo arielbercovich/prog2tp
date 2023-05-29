@@ -34,12 +34,12 @@
 			Eliminen estás líneas y coloquen el formulario. <br>
 			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
 			//////////////// -->
-			<form method="GET" action="/login/profile">
+			<form method="POST" action="/login/profile">
 				<label>Usuario:</label>
-				<input type="email" name="usuario" ><br>
+				<input type="email" name="usuario" required ><br>
 			  
 				<label>Contraseña:</label>
-				<input type="password" name="contrasena" ><br>
+				<input type="password" name="contrasena" required ><br>
 			  
 				<label>Recordarme:</label>
 				<input type="checkbox" name="recordarme"><br>
