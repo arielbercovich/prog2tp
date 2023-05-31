@@ -13,7 +13,7 @@ let registroController = {
         let nuevo = {
             email: form.email,
             usuario: form.usuario,
-            contrasena: bcrypt.hashSync(form.contrasena),
+            contrasena: bcrypt.hashSync(form.contrasena, 10),
             fechaNacimiento: form.fechaNacimiento,
             createdAt: new Date()
         }
