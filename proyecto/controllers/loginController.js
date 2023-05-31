@@ -35,10 +35,24 @@ let loginController = {
     show: function(req, res){
         let form = req.body
         db.Usuario.findOne({
-            where: {email: email}
+            where: {email: form.email}
         })
-          .then  
+          .then(function(usuarioEncontrado){
+
+            let compare = bcriptjs.compSync(form.contrasena, usuarioEncontrado.contrasena)
+
+            if(compare){
+
+
+            } else {
+                return res.send("La contraseña es incorrecta")
+            }
+          })
+
+        
         //buscar datos de db
+
+        
         //ponerlos en sesion
         //agregar cookie para que lo recuerde
     }
