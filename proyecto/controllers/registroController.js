@@ -17,11 +17,11 @@ let registroController = {
             fechaNacimiento: form.fechaNacimiento,
             createdAt: new Date()
         }
-        // db.Usuario.create(nuevo)
-        //     .then(function(newUser){
-        //         console.log(newUser);
-        //         return res.redirect('/')
-        //     })
+            // db.Usuario.create(nuevo)
+            //     .then(function(newUser){
+            //         console.log(newUser);
+            //         return res.redirect('/')
+            //     })
         db.Usuario.findOne({
             where: [
                 {email: form.email}
