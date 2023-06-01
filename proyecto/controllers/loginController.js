@@ -1,6 +1,7 @@
 let fav = require('../db/productos.js');
 let db = require('../database/models')
 let op = db.Sequelize.Op;
+let bcrypt= require("bcryptjs");
 
 let loginController = {
     index: function(req, res){
@@ -38,7 +39,7 @@ let loginController = {
         })
         .then(function(usuarioEncontrado){
 
-            let compare = bcriptjs.compSync(form.contrasena, usuarioEncontrado.contrasena)
+            let compare = bcrypt.compSync(form.contrasena, usuarioEncontrado.contrasena)
 
             if(compare){
 
