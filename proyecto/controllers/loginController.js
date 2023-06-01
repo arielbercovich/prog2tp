@@ -1,4 +1,3 @@
-let db = require('../db/usuario.js')
 let fav = require('../db/productos.js');
 let db = require('../database/models')
 let op = db.Sequelize.Op;
