@@ -37,17 +37,7 @@ let loginController = {
         db.Usuario.findOne({
             where: {email: form.email}
         })
-        .then(function(usuarioEncontrado){
-
-            let compare = bcrypt.compSync(form.contrasena, usuarioEncontrado.contrasena)
-
-            if(compare){
-
-
-            } else {
-                return res.send("La contraseña es incorrecta")
-            }
-          })
+        
         //buscar datos de db
         //ponerlos en sesion
         //agregar cookie para que lo recuerde

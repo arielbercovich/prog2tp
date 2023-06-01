@@ -26,7 +26,7 @@ let registroController = {
                 db.Usuario.create(nuevo)
                     .then(function(newUser){
                         console.log(newUser);
-                        return res.redirect('/');
+                        return res.redirect('/login');
                     })
                     .catch(function(error){
                         console.log(error);
