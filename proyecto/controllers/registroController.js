@@ -12,36 +12,35 @@ let registroController = {
         let form = req.body
         let nuevo = {
             email: form.email,
-            usuario: form.usuario,
             contrasena: bcrypt.hashSync(form.contrasena, 10),
-            fechaNacimiento: form.fechaNacimiento,
+            dni: form.dni,
+            fecha: form.fecha,
             createdAt: new Date()
         }
-            
-            // db.Usuario.create(nuevo)
-            //     .then(function(newUser){
-            //         console.log(newUser);
-            //         return res.redirect('/')
-            //     })
+
         db.Usuario.findOne({
-            where: [
-                {email: form.email}
-            ]
+            where: { email: form.email }
+        })
             .then(function(email){
                 if (email == null){
-                    db.Usuario.create(nuevo);
-                    res.redirect('/')
+                    db.Usuario.create(nuevo)
+                        .then(function(newUser){
+                            console.log(newUser);
+                            return res.redirect('/');
+                        })
+                        .catch(function(error){
+                            console.log(error);
+                        });
                 }
                 else{
-                    res.send('El correo que ingresaste ya fue registrado, intenta con otro o inicia sesión con tu usuario :)')
+                    res.send('El correo que ingresaste ya fue registrado, intenta con otro o inicia sesión con tu usuario :)');
                 }
             })
             .catch(function(error){
-                console.log(error)
-            })
-        })
-    }
-
-}
+                console.log(error);
+            });
+        
+    
+    }}
 
 module.exports = registroController;
