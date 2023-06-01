@@ -36,7 +36,7 @@ let registroController = {
                 }
             })
             .catch(function(error){
-                res.send('ERROR')
+                console.log(error)
             })
         })
     }
