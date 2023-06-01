@@ -19,28 +19,26 @@ let registroController = {
         }
 
         db.Usuario.findOne({
-            where: { email: form.email }
+        where: { email: form.email }
+    })
+        .then(function(email){
+            if (email == null){
+                db.Usuario.create(nuevo)
+                    .then(function(newUser){
+                        console.log(newUser);
+                        return res.redirect('/');
+                    })
+                    .catch(function(error){
+                        console.log(error);
+                    });
+            }
+            else{
+                res.send('El correo que ingresaste ya fue registrado, intenta con otro o inicia sesión con tu usuario :)');
+            }
         })
-            .then(function(email){
-                if (email == null){
-                    db.Usuario.create(nuevo)
-                        .then(function(newUser){
-                            console.log(newUser);
-                            return res.redirect('/');
-                        })
-                        .catch(function(error){
-                            console.log(error);
-                        });
-                }
-                else{
-                    res.send('El correo que ingresaste ya fue registrado, intenta con otro o inicia sesión con tu usuario :)');
-                }
-            })
-            .catch(function(error){
-                console.log(error);
-            });
-        
+        .catch(function(error){
+            console.log(error);
+        });
     
     }}
-
 module.exports = registroController;
