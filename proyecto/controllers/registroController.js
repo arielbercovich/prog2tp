@@ -17,6 +17,7 @@ let registroController = {
             fechaNacimiento: form.fechaNacimiento,
             createdAt: new Date()
         }
+            
             // db.Usuario.create(nuevo)
             //     .then(function(newUser){
             //         console.log(newUser);
