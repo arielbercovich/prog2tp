@@ -1,5 +1,6 @@
+let db = require('../db/usuario.js')
 let fav = require('../db/productos.js');
-let db = require('../database/models');
+let db = require('../database/models')
 let op = db.Sequelize.Op;
 
 let loginController = {
@@ -36,7 +37,7 @@ let loginController = {
         db.Usuario.findOne({
             where: {email: form.email}
         })
-          .then(function(usuarioEncontrado){
+        .then(function(usuarioEncontrado){
 
             let compare = bcriptjs.compSync(form.contrasena, usuarioEncontrado.contrasena)
 
@@ -47,11 +48,7 @@ let loginController = {
                 return res.send("La contraseña es incorrecta")
             }
           })
-
-        
         //buscar datos de db
-
-        
         //ponerlos en sesion
         //agregar cookie para que lo recuerde
     }
