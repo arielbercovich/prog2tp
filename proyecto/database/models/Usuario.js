@@ -12,9 +12,9 @@ module.exports = function (sequelize, dataTypes){
         contrasena:{
             type: dataTypes.STRING(50)
         },
-        info_foto: {
-            type: dataTypes.STRING(20)
-        },
+        // info_foto: {
+        //     type: dataTypes.STRING(20)
+        // },
         fecha: {
             type: dataTypes.DATE
         },
