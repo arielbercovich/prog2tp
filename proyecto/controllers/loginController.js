@@ -34,9 +34,20 @@ let loginController = {
     },
     show: function(req, res){
         let form = req.body
+        console.log(form);
         db.Usuario.findOne({
             where: {email: form.email}
         })
+            .then(function(user){
+                console.log(user);
+                if (bcrypt.compareSync(form.contrasena, user.contrasena)){
+                    console.log('coinciden');
+                    return res.redirect('/')
+                }
+                else{
+                    console.log('La contrasenia no coincide');
+                }
+            })
         
         //buscar datos de db
         //ponerlos en sesion

@@ -24,7 +24,8 @@
 	
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-	
+			<h2 class="products-title">Creado por: <%= usuario.email %></h2> <br/>
+
 			<h2 class="products-title"><%= nombre %></h2> 
 			
 		</div>
@@ -48,8 +49,8 @@
 							<h2>Comentarios:</h2>
 							<% for (let i=0; i< comentarios.length; i ++) { %>
 							  <p class="user">
-								<strong> <a href="/login"><%= comentarios[i].usuario %> </a> </strong>
-								<%= comentarios[i].texto %>
+								<strong> <a href="/profile/<%=comentadores[i].id%>"><%=  comentadores[i].email %> </a> </strong>
+								<%= comentarios[i].texto_comentario %>
 						
 							  </p>
 							  <% } %>

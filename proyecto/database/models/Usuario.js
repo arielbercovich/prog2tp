@@ -10,11 +10,11 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.STRING(50)
         },
         contrasena:{
-            type: dataTypes.STRING(50)
+            type: dataTypes.STRING
         },
-        // info_foto: {
-        //     type: dataTypes.STRING(20)
-        // },
+        info_foto: {
+            type: dataTypes.STRING(20)
+        },
         fecha: {
             type: dataTypes.DATE
         },

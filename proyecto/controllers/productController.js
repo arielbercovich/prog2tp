@@ -1,6 +1,6 @@
 let db = require('../db/productos.js');
 let dbA = require('../db/prod.js')
-let mod = require('../database/models')  // Chequear
+let modelos = require('../database/models')  // Chequear
 
 
 let productController = {
@@ -16,17 +16,25 @@ let productController = {
         return res.render('product', {nombre: lista[0].nombre, descripcion: lista[0].descripcion, imagen: lista[0].imagen, comentarios: lista[0].comentarios})
     }, 
     show: function (req, res){
-        
-        let lista = null;
-        let info = dbA.listaa
-        for (let i =0; i< info.length; i++){
-            if (info[i].id == req.params.id){
-                lista = info[i]
+        modelos.Producto.findOne({
+            where: [{id: req.params.id}],
+            include: [{association: 'comentario'}, {association:'usuario'}]
+        })
+        .then(function(producto){
+            // return res.send(producto);
+            let comentadores = [];
+            for(let i =0; i<producto.comentario.length; i++){
+                modelos.Usuario.findByPk(producto.comentario[i].id_usuario)
+                .then(function(unComentador){
+                    comentadores.push(unComentador)
+                    if (i == producto.comentario.length - 1){
+                        res.render('product', {nombre: producto.nombre_producto, descripcion: producto.descripcion, imagen: producto.foto, comentarios: producto.comentario, usuario: producto.usuario, comentadores: comentadores})
+                    }
+                })
             }
-        }
-        return res.render('product', {nombre: lista.nombre, descripcion: lista.descripcion, imagen: lista.imagen, comentarios: lista.comentarios})
-     
-    },
+    
+        })
+    }
     // nombre: function(req,res): { 
     //         mod.Productos.findAll({
     //             where: {

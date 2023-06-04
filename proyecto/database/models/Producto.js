@@ -24,6 +24,9 @@ module.exports = function (sequelize, dataTypes){
         deletedAt:{
             type: dataTypes.DATE
         },
+        foto:{
+            type: dataTypes.STRING
+        }
     }
 
     let config = {
@@ -34,17 +37,17 @@ module.exports = function (sequelize, dataTypes){
 
     let Producto = sequelize.define(alias,cols,config);
    
-    // Producto.associate = function (models){
-    //     Producto.hasMany(models.Comentario,{
-    //         as:'comentario',
-    //         foreignKey:'id_post',
+    Producto.associate = function (models){
+        Producto.hasMany(models.Comentario,{
+            as:'comentario',
+            foreignKey:'id_post',
 
-    //     })
-    //     Producto.belongsTo(models.Usuario,{
-    //         as:'usuario',
-    //         foreignKey:'id_usuario',
-    //     })
-    // }
+        })
+        Producto.belongsTo(models.Usuario,{
+            as:'usuario',
+            foreignKey:'id_usuario',
+        })
+    }
 
 
     
