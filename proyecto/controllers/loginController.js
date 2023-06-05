@@ -43,9 +43,11 @@ let loginController = {
                 if (userEncontrado == null){
                     error.mensaje = 'El email que ingresaste no está registrado'
                     res.locals.errors = error;
+                    console.log(error);
                     return res.render('login');
+                
                 }
-
+                
                 else{
                     let comparacion = bcrypt.compareSync(form.contrasena, userEncontrado.contrasena)
                     if (comparacion){
@@ -57,22 +59,21 @@ let loginController = {
                             res.cookie('cookieRecordacion', 'valor', {maxAge: 1000*60*123123123})
                         }
               
-                        return res.redirect('/');
+                        return res.redirect('/login');
                 }
                     else{
                         error.mensaje = 'La contraseña no coincide';
+                        console.log(error);
                         res.locals.errors = error;
                         return res.render('login');
                 }
+                
             }
         })
             .catch(function(errores){
                 console.log(errores);
             })
-        //buscar datos de db
-        //ponerlos en sesion
-        //agregar cookie para que lo recuerde
     }
-
+    
 }
 module.exports = loginController
