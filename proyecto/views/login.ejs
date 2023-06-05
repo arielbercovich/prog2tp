@@ -34,6 +34,9 @@
 			Eliminen estás líneas y coloquen el formulario. <br>
 			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
 			//////////////// -->
+			<% if (locals.errors){ %>
+				<p>	<%= locals.errors.mensaje %></p>
+				<% }%>
 			<form method="POST" action="/login">
 				<label>Usuario:</label>
 				<input type="email" name="email" required ><br>
