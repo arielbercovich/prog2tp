@@ -34,21 +34,41 @@ let loginController = {
     },
     show: function(req, res){
         let form = req.body
-        console.log(form);
         db.Usuario.findOne({
             where: {email: form.email}
         })
-            .then(function(user){
-                console.log(user);
-                if (bcrypt.compareSync(form.contrasena, user.contrasena)){
-                    console.log('coinciden');
-                    return res.redirect('/')
+
+            .then(function(userEncontrado){
+                let error = {}
+                if (userEncontrado == null){
+                    error.mensaje = 'El email que ingresaste no está registrado'
+                    res.locals.errors = error;
+                    return res.render('login');
                 }
+
                 else{
-                    console.log('La contrasenia no coincide');
+                    let comparacion = bcrypt.compareSync(form.contrasena, userEncontrado.contrasena)
+                    if (comparacion){
+                        req.session.user = {
+                            email: userEncontrado.email,
+                        }
+                
+                        if (req.body.recordarme!=undefined){
+                            res.cookie('cookieRecordacion', 'valor', {maxAge: 1000*60*123123123})
+                        }
+              
+                        return res.redirect('/');
                 }
+                    else{
+                        error.mensaje = 'La contraseña no coincide';
+                        res.locals.errors = error;
+                        return res.render('login');
+                }
+            }
+        })
+            .catch(function(errores){
+                console.log(errores);
             })
-        
         //buscar datos de db
         //ponerlos en sesion
         //agregar cookie para que lo recuerde
