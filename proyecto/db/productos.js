@@ -1,7 +1,7 @@
 let productos = {
    arqueros: [
         {
-            id:6,
+            id:1,
             nombre: 'Gabriel Arias',
             descripcion: 'Gabriel Arias Arroyo es un futbolista chileno nacido en Argentina. Juega como arquero en Racing Club de la Primera División de Argentina y es internacional con la selección de Chile.',
             imagen: "arias.png",
@@ -16,7 +16,7 @@ let productos = {
         },
 
         {
-            id:10,
+            id:2,
             nombre: 'German Salort',
             descripcion: 'Germán Guillermo Salort es un futbolista argentino. Juega de Arquero y su equipo actual es Comunicaciones, de la Primera Nacional',
             imagen: "salort.png",
@@ -30,7 +30,7 @@ let productos = {
             ]
         },
         {
-            id:11,
+            id:3,
             nombre: 'Leandro Brey',
             descripcion: 'Leandro Brey es un futbolista argentino. Actualmente es el arquero de la Reserva del C.A Boca Juniors. Debutó con 17 años en Los Andes',
             imagen: "brey.png",
@@ -44,7 +44,7 @@ let productos = {
             ]
         },
         {
-            id:12,
+            id:4,
             nombre: 'Augusto Batalla',
             descripcion: 'Augusto Batalla es un futbolista argentino. Actualmente es el arquero titular de San Lorenzo de Almagro. Es de la cantera de River y estuvo al borde de jugar en el Real Madrid',
             imagen: "batalla.png",
@@ -61,7 +61,7 @@ let productos = {
     ],
     defensores: [
         {
-            id:23,
+            id:5,
             nombre: 'Facundo Mura',
             descripcion: 'Facundo Mura (General Roca, Río Negro, 24 de marzo de 1999) es un futbolista argentino. Juega de lateral derecho y su equipo actual es Racing Club de la Primera División de Argentina.',
             imagen: "mura.png",
@@ -75,7 +75,7 @@ let productos = {
             ]
         },
         {
-            id:22,
+            id:6,
             nombre: 'Federico Gattoni',
             descripcion: 'Gattoni es un volante Uruguayo nacido el 19/02/2001 en Pando (URU). Actualmente juega en Independiente de Avellaneda. Se desenvuelve como mediocampista ofensivo, disputó 7 partidos y convirtió 1 goles en Argentina (Primera División), mientras que jugó 34 partidos y convirtió 2 goles en el extranjero',
             imagen: "gattoni.png",
@@ -89,7 +89,7 @@ let productos = {
             ]
         },
         {
-            id:24,
+            id:7,
             nombre: 'Bruno Bianchi',
             descripcion: 'Bruno Félix Bianchi Massey es un futbolista argentino. Juega como marcador central y su primer equipo fue Estudiantes de La Plata. Actualmente milita en Atlético Tucumán de la Liga Profesional',
             imagen: "bianchi.png",
@@ -103,7 +103,7 @@ let productos = {
             ]
         },
         {
-            id:33,
+            id:8,
             nombre: 'Alan Rodriguez',
             descripcion: 'Alan Rodríguez (Fernando de la Mora, 15 de agosto de 2000) es un futbolista paraguayo. Juega como lateral izquierdo o interior izquierdo y su actual equipo es Rosario Central de la Primera División de Argentina.',
             imagen: "alan.png",
@@ -120,7 +120,7 @@ let productos = {
     ],
     volantes: [
         {
-            id:2,
+            id:9,
             nombre: 'Baltasar Barcia',
             descripcion: 'Mateo Baltasar Barcia Fernández es un volante Uruguayo nacido el 19/02/2001 en Pando (URU). Actualmente juega en Independiente de Avellaneda. Se desenvuelve como mediocampista ofensivo, disputó 7 partidos y convirtió 1 goles en Argentina (Primera División), mientras que jugó 34 partidos y convirtió 2 goles en el extranjero',
             imagen: "baltasar.png",
@@ -135,7 +135,7 @@ let productos = {
         },
         
         {
-            id:3,
+            id:10,
             nombre: 'Ignacio Fernández',
             descripcion: 'Ignacio Martín Fernández es un futbolista argentino. Se desempeña como mediocampista y su equipo actual es River Plate de la Primera División de Argentina',
             imagen: "nacho fernandez.png",
@@ -149,7 +149,7 @@ let productos = {
             ]
         },
         {
-                id:5,
+                id:11,
                 nombre: 'Federico Redondo',
                 descripcion: 'Lisandro López es un futbolista] argentino que se desempeña como delantero en el Club Atlético Sarmiento de la Primera División de Argentina.',
                 imagen: "redondo.png",
@@ -163,7 +163,7 @@ let productos = {
                 ]
             },
         {
-                id:15,
+                id:12,
                 nombre: 'Cristian Medina',
                 descripcion: 'Cristian Medina es un futbolista] argentino que se desempeña como delantero en el Club Atlético Boca Jrs. de la Primera División de Argentina.',
                 imagen: "medina.png",
@@ -179,7 +179,7 @@ let productos = {
     ],
     delanteros: [
         {
-            id:1,
+            id:13,
             nombre: 'Darío Benedetto',
             descripcion: 'Darío Ismael "Pipa" Benedetto es un futbolista argentino que juega de Delantero como número 9. Actualmente es propiedad del Club Atlético Boca Juniors de la Liga Profesional de Fútbol Argentino.',
             imagen: "benedetto.png",
@@ -204,7 +204,7 @@ let productos = {
             ]
         },
         {
-            id:4,
+            id:14,
             nombre: 'Lisandro Lopez',
             descripcion: 'Lisandro López es un futbolista argentino que se desempeña como delantero en el Club Atlético Sarmiento de la Primera División de Argentina.',
             imagen: "licha.png",
@@ -218,7 +218,7 @@ let productos = {
             ]
         },
         {
-            id:7,
+            id:15,
             nombre: 'Mateo Retegui',
             descripcion: 'Mateo Retegui es un futbolista profesional que juega como centrodelantero en el Club Atlético Tigre de la Liga Profesional argentina. Nacido y criado en Argentina de padres argentinos, siendo su abuelo materno italiano, es internacional absoluto con la selección de Italia.',
             imagen: "retegui.png",
@@ -232,7 +232,7 @@ let productos = {
             ]
         },
         {
-            id:9,
+            id:16,
             nombre: 'Federico Girotti',
             descripcion: 'Federico Girotti es un futbolista profesional argentino que se desempeña en la posición de delantero y actualmente juega en el Club Atlético Talleres de la Primera División de Argentina',
             imagen: "girotti.png",

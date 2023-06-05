@@ -49,6 +49,7 @@ app.use('/users', usersRouter);
 app.use('/registro', registroRouter);
 app.use('/login', loginRouter);
 app.use('/productos', productosRouter);
+app.use('/profile', loginRouter);
 // app.use('/profile', profileRouter);
 // app.post('/formulario', (req, res)=>{
 //   usuario = {
