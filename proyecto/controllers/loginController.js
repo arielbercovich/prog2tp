@@ -1,79 +1,80 @@
 let fav = require('../db/productos.js');
 let db = require('../database/models')
 let op = db.Sequelize.Op;
-let bcrypt= require("bcryptjs");
+let bcrypt = require("bcryptjs");
 
 let loginController = {
-    index: function(req, res){
+    index: function (req, res) {
         // si el user esta logueado, redirigirlo a home
-        if (req.session.user != undefined){
-            return res.redirect ('/')
-        } 
-        else{
+        if (req.session.user != undefined) {
+            return res.redirect('/')
+        }
+        else {
             return res.render('login')
         }
         // return res.render('login')
     },
     // processLogin: function (req, res){
-        // tengo qur buscsar los datos de la db 
-        //ponerlos en la session
+    // tengo qur buscsar los datos de la db 
+    //ponerlos en la session
 
 
-        // return res.send(req.session){
-            // email: 'traer de base de datos',
-            // userName: 'traer de base de datos'
-        // }
-        //y si el usuario quiere, agregar la cookie para que lo recuerde
+    // return res.send(req.session){
+    // email: 'traer de base de datos',
+    // userName: 'traer de base de datos'
+    // }
+    //y si el usuario quiere, agregar la cookie para que lo recuerde
 
     // },
-    profile: function(req,res){
-        return res.render('profile', {nombre: db[0].nombre, email: db[0].email, clave: db[0].contraseña, cumple: db[0].fechaDeNacimiento, dni: db[0].dni, foto: db[0].foto, defensores: fav.defensores})
+    profile: function (req, res) {
+        return res.render('profile', { nombre: db[0].nombre, email: db[0].email, clave: db[0].contraseña, cumple: db[0].fechaDeNacimiento, dni: db[0].dni, foto: db[0].foto, defensores: fav.defensores })
     },
-    edit: function(req, res){
+    edit: function (req, res) {
         return res.render('profile-edit')
     },
-    show: function(req, res){
+    show: function (req, res) {
         let form = req.body
         db.Usuario.findOne({
-            where: {email: form.email}
+            where: { email: form.email }
         })
 
-            .then(function(userEncontrado){
+            .then(function (userEncontrado) {
                 let error = {}
-                if (userEncontrado == null){
+                if (userEncontrado == null) {
                     error.mensaje = 'El email que ingresaste no está registrado'
                     res.locals.errors = error;
                     console.log(error);
                     return res.render('login');
-                
+
                 }
-                
-                else{
+
+                else {
                     let comparacion = bcrypt.compareSync(form.contrasena, userEncontrado.contrasena)
-                    if (comparacion){
+                    console.log(userEncontrado.contrasena)
+                    if (comparacion) {
                         req.session.user = {
                             email: userEncontrado.email,
                         }
-                
-                        if (req.body.recordarme!=undefined){
-                            res.cookie('cookieRecordacion', 'valor', {maxAge: 1000*60*123123123})
+
+                        if (req.body.recordarme != undefined) {
+                            res.cookie('cookieRecordacion', 'valor', { maxAge: 1000 * 60 * 123123123 })
                         }
-              
+
                         return res.redirect('/login');
-                }
-                    else{
+                    }
+                    else {
                         error.mensaje = 'La contraseña no coincide';
                         console.log(error);
                         res.locals.errors = error;
                         return res.render('login');
+                    }
+
                 }
-                
-            }
-        })
-            .catch(function(errores){
+            })
+            .catch(function (errores) {
                 console.log(errores);
             })
     }
-    
+
 }
 module.exports = loginController
