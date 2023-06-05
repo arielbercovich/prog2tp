@@ -21,20 +21,21 @@ let productController = {
             include: [{association: 'comentario'}, {association:'usuario'}]
         })
         .then(function(producto){
-            // return res.send(producto);
-            let comentadores = [];
-                for(let i =0; i<producto.comentario.length; i++){
-                modelos.Usuario.findByPk(producto.comentario[i].id_usuario)
-                .then(function(unComentador){
-                    comentadores.push(unComentador)
-                    if (i == producto.comentario.length - 1){
-                        res.render('product', {nombre: producto.nombre_producto, descripcion: producto.descripcion, imagen: producto.foto, comentarios: producto.comentario, usuario: producto.usuario, comentadores: comentadores})
-                    }
-                })
+            return res.send(producto)
+            return res.render('product', producto);
+            // let comentadores = [];
+            //     for(let i =0; i<producto.comentario.length; i++){
+            //     modelos.Usuario.findByPk(producto.comentario[i].id_usuario)
+            //     .then(function(unComentador){
+            //         comentadores.push(unComentador)
+            //         if (i == producto.comentario.length - 1){
+            //             res.render('product', {nombre: producto.nombre_producto, descripcion: producto.descripcion, imagen: producto.foto, comentarios: producto.comentario, usuario: producto.usuario, comentadores: comentadores})
+            //         }
+            //     })
 
-            }
+            })
     
-        })
+        
     }
     // nombre: function(req,res): { 
     //         mod.Productos.findAll({
