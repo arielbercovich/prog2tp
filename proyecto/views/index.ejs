@@ -20,9 +20,13 @@
 
 	<!-- Header -->
 	<% if (locals.user != undefined) {%>
-	<p>Bienvenido <%= locals.user.email %></p>
+		<%- include('partials/headerLogueado') %>
+
+	<% } else { %>
+		<%- include('partials/header') %>
+
 	<% } %>
-	<%- include('partials/header') %>
+
 
 	<!-- /Header -->
 	<!-- Banner -->
