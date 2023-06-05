@@ -73,6 +73,10 @@ let loginController = {
             .catch(function(errores){
                 console.log(errores);
             })
+    },
+    logout: function(req,res){
+        req.session.destroy();
+        return res.redirect('/')
     }
     
 }
