@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 let registroRouter = require('./routes/registro');
 let loginRouter = require('./routes/login');
 let productosRouter = require('./routes/productos');
-let busquedaRouter = require('.')
+let busquedaRouter = require('./routes/busqueda')
 let session = require('express-session');
 
 // let profileRouter = require('./routes/profile');
