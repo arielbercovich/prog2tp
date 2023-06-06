@@ -9,10 +9,12 @@ let busquedaController = {
         let busc = req.query.search
         let muestra = {
             where: [{nombre:{[op.like]: `%${busqueda}%`}}],
-            order: [
-                ['createdAt', 'ASC']
-            ],
-            
+            order: [['createdAt', 'ASC']],
+            include: [{association: 'comentario'}, {association:'usuario'}]
+        }
+        
+
+
         }
     }
     
