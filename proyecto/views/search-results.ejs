@@ -89,10 +89,10 @@
 				<%for (let i=0; i<results.length; i++){ %>
 				<a href="/producto/detalle/id/<%=results[i].id%>"> 
 					<figure class="product-box_image">
-						<img src="<%=results[i].imagen%>" alt="<%=results[i].nombre%>">
+						<img src="<%=results[i].foto%>" alt="<%=results[i].nombre_producto%>">
 					</figure>
 					<article class="product-box_data">
-						<h2><%=results[i].nombre%></h2>
+						<h2><%=results[i].nombre_producto%></h2>
 						<p><%=results[i].descripcion%></p>
 						<p>Comentarios: <%=results[i].comentarios.length%></p> 
 					</article>
