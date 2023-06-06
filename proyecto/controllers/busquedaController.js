@@ -15,7 +15,16 @@ let busquedaController = {
                 if (results.length != 0){
                     res.render('search-results', {results: results});
                 }
+                else{
+
+                    res.send("NO ENCONTRAMOS NADA SOBRE SU BUSQUEDA, INTENTA DENUEVO")
+                }
         })
+            .catch(function(error){
+                console.log(error)
+
+            })
+            
     }
 }
 
