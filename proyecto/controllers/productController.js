@@ -21,8 +21,9 @@ let productController = {
             include: [{association: 'comentario'}, {association:'usuario'}]
         })
         .then(function(producto){
-            return res.send(producto)
-            return res.render('product', producto);
+            return res.send(producto)     
+            console.log(producto)
+            // return res.render('product', producto);
             // let comentadores = [];
             //     for(let i =0; i<producto.comentario.length; i++){
             //     modelos.Usuario.findByPk(producto.comentario[i].id_usuario)
@@ -32,21 +33,22 @@ let productController = {
             //             res.render('product', {nombre: producto.nombre_producto, descripcion: producto.descripcion, imagen: producto.foto, comentarios: producto.comentario, usuario: producto.usuario, comentadores: comentadores})
             //         }
             //     })
+            // }
 
             })
     
         
     }
-    // nombre: function(req,res): { 
-    //         mod.Productos.findAll({
-    //             where: {
-    //                 id: 3
-    //             }
-    //         })
-    //         .then(function(productos) {
-    //             res.render("Listado de Jugadores", {productos:productos})
-    //         })
-    //     }  
+//     nombre: function(req,res): { 
+//             modelos.Productos.findAll({
+//                 where: {
+//                     id: 3
+//                 }
+//             })
+//             .then(function(productos) {
+//                 res.render("Listado de Jugadores", {productos:productos})
+//             })
+//         }  
 };
 
 module.exports = productController;
