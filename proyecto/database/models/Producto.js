@@ -29,6 +29,9 @@ module.exports = function (sequelize, dataTypes){
         },
         posicion:{
             type: dataTypes.STRING
+        },
+        detalle:{
+            type: dataTypes.STRING
         }
     }
 

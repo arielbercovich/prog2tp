@@ -47,25 +47,26 @@
 			<!-- Show the "ultimos" products -->
 			
 			
+			<% if (posiciones.arquero && posiciones.arquero.length > 0) { %>
+				<% for(let i=0; i< posiciones.arquero.length; i++){%>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/productos/id/<%= posiciones.arquero[i].id %>">
+							<div class="contenedor-imagen">
+				
+								<img class="product-box_image"src="/images/products/<%= posiciones.arquero[i].foto %>" alt="Jugador">
 
-			<% for(let i=0; i<arqueros.length; i++){%>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/productos/id/<%= arqueros[i].id%>">
-						<div class="contenedor-imagen">
-			
-							<img class="product-box_image"src="/images/products/<%= arqueros[i].imagen %>" alt="Jugador">
-
-						</div>
-						<article class="product-box_data">
-							<h2><%= arqueros[i].nombre %></h2>
-							<p><%= arqueros[i].detalle %></p>
-							
-						</article>
-					</a>
-				</section>
-			</div>
+							</div>
+							<article class="product-box_data">
+								<h2><%= posiciones.arquero[i].nombre_producto %></h2>
+								<p><%= posiciones.arquero[i].detalle %></p>
+								
+							</article>
+						</a>
+					</section>
+				</div>
 			<%}%>
+		 <% } %>
 		</div>
 	</div>
 
@@ -80,25 +81,26 @@
 			<!-- Show the "ultimos" products -->
 			
 			
-
-			<% for(let i=0; i<defensores.length; i++){%>
+			<% if (posiciones.defensor && posiciones.defensor.length > 0) { %>
+			<% for(let i=0; i<posiciones.defensor.length; i++){%>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/productos/id/<%= defensores[i].id%>">
+					<a href="/productos/id/<%= posiciones.defensor[i].id%>">
 						<div class="contenedor-imagen">
-			
-							<img class="product-box_image"src="/images/products/<%= defensores[i].imagen %>" alt="Jugador">
+				
+							<img class="product-box_image"src="/images/products/<%= posiciones.defensor[i].foto %>" alt="Jugador">
 
 						</div>
 						<article class="product-box_data">
-							<h2><%= defensores[i].nombre %></h2>
-							<p><%= defensores[i].detalle %></p>
-							
+							<h2><%= posiciones.defensor[i].nombre_producto %></h2>
+							<p><%= posiciones.defensor[i].detalle %></p>
+								
 						</article>
 					</a>
 				</section>
 			</div>
 			<%}%>
+		 <% } %>
 		</div>
 	</div>
 
@@ -113,25 +115,26 @@
 			<!-- Show the "ultimos" products -->
 			
 			
+			<% if (posiciones.volante && posiciones.volante.length > 0) { %>
+				<% for(let i=0; i<posiciones.volante.length; i++){%>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/productos/id/<%= posiciones.volante[i].id%>">
+							<div class="contenedor-imagen">
+				
+								<img class="product-box_image"src="/images/products/<%= posiciones.volante[i].foto %>" alt="Jugador">
 
-			<% for(let i=0; i<volantes.length; i++){%>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/productos/id/<%= volantes[i].id%>">
-						<div class="contenedor-imagen">
-			
-							<img class="product-box_image"src="/images/products/<%= volantes[i].imagen %>" alt="Jugador">
-
-						</div>
-						<article class="product-box_data">
-							<h2><%= volantes[i].nombre %></h2>
-							<p><%= volantes[i].detalle %></p>
-							
-						</article>
-					</a>
-				</section>
-			</div>
-			<%}%>
+							</div>
+							<article class="product-box_data">
+								<h2><%= posiciones.volante[i].nombre_producto %></h2>
+								<p><%= posiciones.volante[i].detalle %></p>
+								
+							</article>
+						</a>
+					</section>
+				</div>
+				<%}%>
+			<% } %>
 		</div>
 	</div>
 	<div class="container products-wrapper">
@@ -145,25 +148,27 @@
 			<!-- Show the "ultimos" products -->
 			
 			
+			<% if (posiciones.delantero && posiciones.delantero.length > 0) { %>
+				<% for(let i=0; i<posiciones.delantero.length; i++){%>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/productos/id/<%= posiciones.delantero[i].id%>">
+							<div class="contenedor-imagen">
+				
+								<img class="product-box_image"src="/images/products/<%= posiciones.delantero[i].foto %>" alt="Jugador">
 
-			<% for(let i=0; i<delanteros.length; i++){%>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/productos/id/<%= delanteros[i].id%>">
-						<div class="contenedor-imagen">
-			
-							<img class="product-box_image"src="/images/products/<%= delanteros[i].imagen %>" alt="Jugador">
-
-						</div>
-						<article class="product-box_data">
-							<h2><%= delanteros[i].nombre %></h2>
-							<p><%= delanteros[i].detalle %></p>
-							
-						</article>
-					</a>
-				</section>
-			</div>
+							</div>
+							<article class="product-box_data">
+								<h2><%= posiciones.delantero[i].nombre_producto %></h2>
+								<p><%= posiciones.delantero[i].detalle %></p>
+								
+							</article>
+						</a>
+					</section>
+				</div>
+				<%}%>
 			<%}%>
+
 		</div>
 	</div>
 	<!-- /Novedades -->
