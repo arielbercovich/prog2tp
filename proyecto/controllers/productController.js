@@ -21,7 +21,7 @@ let productController = {
             include: [{association: 'comentario'}, {association:'usuario'}]
         })
         .then(function(producto){
-            return res.send(producto)     
+            return res.render("product", producto)     
             console.log(producto)
             // return res.render('product', producto);
             // let comentadores = [];
