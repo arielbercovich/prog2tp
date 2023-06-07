@@ -6,6 +6,14 @@ let modelos = require('../database/models')  // Chequear
 let productController = {
 
     index: function(req, res){
+        modelos.Producto.findAll({
+            where: [{ posicion: 'arquero'}, { posicion: 'defensor'},{ posicion: 'volante'}, { posicion: 'delantero'}],
+            include: [{association: 'producto'}, {association: 'usuario'}]
+        })
+        .then(function(posicion){
+            console.log(posicion)
+
+        })
         return res.render('index', {arqueros: db.arqueros, defensores: db.defensores, volantes: db.volantes, delanteros: db.delanteros})
     },
     add: function (req, res){

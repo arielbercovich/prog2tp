@@ -26,6 +26,9 @@ module.exports = function (sequelize, dataTypes){
         },
         foto:{
             type: dataTypes.STRING
+        },
+        posicion:{
+            type: dataTypes.STRING
         }
     }
 
