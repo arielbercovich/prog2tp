@@ -10,20 +10,35 @@ let busquedaController = {
                 order: [['createdAt', 'ASC']],
                 include: [{association: 'comentario'}, {association:'usuario'}]
             }
+
             db.Producto.findAll(muestra) 
+
+
             .then(function(results){
+                let error = {}
                 if (results.length != 0){
-                    res.render('search-results', {results: results});
+                    
+                for (let i = 0; i < results.length; i++) {
+                    if (results[i].comentarios) {
+                    results[i].numComentarios = results[i].comentarios.length;
+                } else {
+                    results[i].numComentarios = 0;
+                }
+                res.render('search-results', {results: results});
+          }
                 }
                 else{
-
-                    res.send("NO ENCONTRAMOS NADA SOBRE SU BUSQUEDA, INTENTA DENUEVO")
+                    error.mensaje = `El jugador ${busc} ya tiene contrato con otro club.`;
+                    console.log(error);
+                    res.locals.errors = error;
+                    return res.render('search-results', { results: [] });
                 }
         })
             .catch(function(error){
                 console.log(error)
 
             })
+
             
     }
 }
