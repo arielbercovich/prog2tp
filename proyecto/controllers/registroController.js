@@ -17,7 +17,6 @@ let registroController = {
             info_foto: form.info_foto,
             dni: form.dni,
             fecha: form.fecha,
-            createdAt: new Date()
         }
 
         db.Usuario.findOne({

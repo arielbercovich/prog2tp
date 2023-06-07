@@ -51,7 +51,7 @@ let loginController = {
 
                 else {
                     let comparacion = bcrypt.compareSync(form.contrasena, userEncontrado.contrasena)
-                    console.log(userEncontrado.contrasena)
+
                     if (comparacion) {
                         req.session.user = {
                             email: userEncontrado.email,

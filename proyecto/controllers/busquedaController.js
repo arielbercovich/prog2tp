@@ -6,7 +6,7 @@ let busquedaController = {
     showResult:function(req, res){
             let busc = req.query.search
             let muestra = {
-                where: [{nombre:{[op.like]: `%${busqueda}%`}}],
+                where: [{nombre_producto:{[op.like]: `%${busc}%`}}],
                 order: [['createdAt', 'ASC']],
                 include: [{association: 'comentario'}, {association:'usuario'}]
             }
