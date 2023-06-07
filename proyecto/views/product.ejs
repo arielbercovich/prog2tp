@@ -54,10 +54,10 @@
 						  <!-- <img src="https://via.placeholder.com/35" alt=""> -->
 						  <div class="data">
 							<h2>Comentarios:</h2>
-							<% for (let i=0; i< comentarios.length; i ++) { %>
+							<% for (let i=0; i< producto.comentario.length; i ++) { %>
 								<p class="user">
-								  <strong> <a href="/profile/<%=comentadores[i].id%>"><%=  comentadores[i].email %> </a> </strong>
-								  <%= comentarios[i].texto_comentario %>
+								  <strong> <a href="/profile/<%=producto.comentario[i].id_usuario%>"><%=  producto.comentario[i].id_usuario %> </a> </strong>
+								  <%= producto.comentario[i].texto_comentario %>
 						  
 								</p>
 								<% } %>
