@@ -41,7 +41,24 @@ let productController = {
         });
       },
     add: function (req, res){
-        return res.render('product-add')
+        let form = req.params;
+        let userId = req.user.id_usuario
+        
+        modelos.Producto.create({
+            id_usuario: userId,
+            nombre_producto: form.nombre_producto,
+            descripcion: form.descripcion,
+            foto: form.fotoPerfil,
+            posicion: form.posicion,
+            detalle: form.detalle,
+          })
+        .then(function(producto){
+            return res.redirect('/', 'Producto añadido con exito')
+        })
+        .catch(function(error){
+            console.log(error);
+            return res.render('product-add', 'Ocurrió un error')
+        })
     },
     product: function (req, res){
         

@@ -31,15 +31,27 @@
 			<h2 class="col-12"> 
 				
 			<form method="GET" action="/">
-				<label>Imagen:</label>
-				<input type="file" name="imagen" ><br>
 			  
-				<label>Nombre del producto:</label>
+				<label>Nombre del jugador:</label>
 				<input type="text" name="nombreProducto" ><br>
+
+				<label>Posición:</label>
+				<select name="posicion">
+				  <option value="arquero">Arquero</option>
+				  <option value="defensor">Defensor</option>
+				  <option value="volante">Volante</option>
+				  <option value="delantero">Delantero</option>
+				</select><br>
 			  
 				<label>Descripción:</label>
 				<textarea name="descripcion" ></textarea><br>
-			  
+
+				<label>Detalle:</label>
+				<textarea name="descripcion" ></textarea><br>	
+
+				<label>Imagen:</label>
+				<input type="file" name="imagen" ><br>
+
 				<label>Fecha de carga:</label>
 				<input type="date" name="fechaCarga" ><br>
 			  
