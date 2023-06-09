@@ -48,23 +48,23 @@
 			
 			
 			<% if (posiciones.arquero && posiciones.arquero.length > 0) { %>
-				<% for(let i=0; i< posiciones.arquero.length; i++){%>
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/productos/id/<%= posiciones.arquero[i].id %>">
-							<div class="contenedor-imagen">
-				
-								<img class="product-box_image"src="/images/products/<%= posiciones.arquero[i].foto %>" alt="Jugador">
+				<% for(let i=0; i < posiciones.arquero.length; i++){%>
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
+							<a href="../database/models/Producto.js<%= posiciones.arquero[i].id %>"> //chequear ruta
+								<div class="contenedor-imagen">
+					
+									<img class="product-box_image"src="/images/products/<%= posiciones.arquero[i].foto %>" alt="Jugador">
 
-							</div>
-							<article class="product-box_data">
-								<h2><%= posiciones.arquero[i].nombre_producto %></h2>
-								<p><%= posiciones.arquero[i].detalle %></p>
-								
-							</article>
-						</a>
-					</section>
-				</div>
+								</div>
+								<article class="product-box_data">
+									<h2><%= posiciones.arquero[i].nombre_producto %></h2>
+									<p><%= posiciones.arquero[i].detalle %></p>
+									
+								</article>
+							</a>
+						</section>
+					</div>
 			<%}%>
 		 <% } %>
 		</div>
@@ -88,7 +88,7 @@
 					<a href="/productos/id/<%= posiciones.defensor[i].id%>">
 						<div class="contenedor-imagen">
 				
-							<img class="product-box_image"src="/images/products/<%= posiciones.defensor[i].foto %>" alt="Jugador">
+							<img class="product-box_image"src="<%= posiciones.defensor[i].foto %>" alt="Jugador">
 
 						</div>
 						<article class="product-box_data">

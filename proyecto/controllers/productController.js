@@ -33,12 +33,10 @@ let productController = {
         })
         .then(function(posiciones){
           console.log(posiciones);
-          // Aquí puedes realizar cualquier otra operación con los datos obtenidos
           res.render('index', {posiciones: posiciones});
         })
         .catch(function(error){
           console.log(error);
-          // Manejo de errores
           res.status(500).send('Error interno del servidor');
         });
       },
