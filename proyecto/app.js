@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 let registroRouter = require('./routes/registro');
 let loginRouter = require('./routes/login');
 let productosRouter = require('./routes/productos');
@@ -47,11 +46,10 @@ app.use(function(req, res, next){
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/registro', registroRouter);
 app.use('/login', loginRouter);
 app.use('/productos', productosRouter);
-app.use('/profile', loginRouter);
+app.use('/profile/:id', loginRouter);
 app.use('/busqueda', busquedaRouter)
 // app.use('/profile', profileRouter);
 // app.post('/formulario', (req, res)=>{

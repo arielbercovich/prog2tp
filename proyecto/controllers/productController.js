@@ -37,7 +37,7 @@ let productController = {
         })
         .catch(function(error){
           console.log(error);
-          res.status(500).send('Error interno del servidor');
+          res.status(500).send('Error');
         });
       },
     add: function (req, res){

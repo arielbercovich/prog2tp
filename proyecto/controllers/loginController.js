@@ -27,9 +27,26 @@ let loginController = {
 
     // },
     profile: function (req, res) {
-        return res.render('profile', 
-        // { nombre: db[0].nombre, email: db[0].email, clave: db[0].contraseña, cumple: db[0].fechaDeNacimiento, dni: db[0].dni, foto: db[0].foto, defensores: fav.defensores })
-    )},
+        let id = req.params.id
+            db.Usuario.findByPk(id, {
+            where: [[]],
+            include : [{association: 'producto', include: [{ association: 'usuario' }]}, {association: 'comentario'}],
+            order : [['createdAt', 'ASC']], 
+            
+        })
+        
+        .then(function(user){
+            if(user){
+                return res.render('profile', {user: user})
+            };
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+    },
+ 
+        
+    
     edit: function (req, res) {
         return res.render('profile-edit')
     },
