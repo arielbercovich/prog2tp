@@ -29,10 +29,11 @@ let productController = {
               { posicion: 'delantero' }
             ]
           },
-          include: [{ association: 'comentario' }, { association: 'usuario' }]
+          include: [{ association: 'comentario' }, { association: 'usuario' }],
+          order: [['createdAt', 'DESC']]
+        
         })
         .then(function(posiciones){
-          console.log(posiciones);
           res.render('index', {posiciones: posiciones});
         })
         .catch(function(error){
@@ -42,7 +43,7 @@ let productController = {
       },
     add: function (req, res){
         let form = req.params;
-        let userId = req.user.id_usuario
+        let userId = req.Usuario.id
         
         modelos.Producto.create({
             id_usuario: userId,
