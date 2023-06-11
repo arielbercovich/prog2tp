@@ -70,6 +70,7 @@ let loginController = {
                     if (comparacion) {
                         req.session.user = {
                             email: userEncontrado.email,
+                            id: userEncontrado.id
                         }
 
                         if (req.body.recordarme != undefined) {
