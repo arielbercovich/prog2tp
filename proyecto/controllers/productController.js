@@ -42,15 +42,15 @@ let productController = {
       },
     add: function (req, res){
         let form = req.params;
-        let userId = req.user.id_usuario
         
         modelos.Producto.create({
-            id_usuario: userId,
+            id_usuario: req.session.Usuario.id,
             nombre_producto: form.nombre_producto,
             descripcion: form.descripcion,
             foto: form.fotoPerfil,
             posicion: form.posicion,
             detalle: form.detalle,
+            include: [{ association: 'producto' }, { association: 'comentario' }]
           })
         .then(function(producto){
             return res.redirect('/', 'Producto añadido con exito')

@@ -5,14 +5,12 @@ let bcrypt = require("bcryptjs");
 
 let loginController = {
     index: function (req, res) {
-        // si el user esta logueado, redirigirlo a home
         if (req.session.user != undefined) {
             return res.redirect('/')
         }
         else {
             return res.render('login')
         }
-        // return res.render('login')
     },
     // processLogin: function (req, res){
     // tengo qur buscsar los datos de la db 
