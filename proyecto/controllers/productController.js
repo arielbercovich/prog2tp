@@ -79,18 +79,35 @@ let productController = {
             console.log(error);
           });
     
-        
-    }
-//     nombre: function(req,res): { 
-//             modelos.Productos.findAll({
-//                 where: {
-//                     id: 3
-//                 }
-//             })
-//             .then(function(productos) {
-//                 res.render("Listado de Jugadores", {productos:productos})
-//             })
-//         }  
-};
+    },
+    comment: function (req, res) {
+        if (req.session.user !== undefined) {
+          let newComment = {
+            id_post: req.params.id,
+            texto_comentario: req.body.comentario,
+            id_usuario: req.session.user.id
+          };
+      
+          db.Comentario.create(newComment)
+            .then(function (respuesta) {
+              db.Producto.findByPk(req.params.id)
+                .then(function (posteo) {
+                  return res.redirect(`/productos/id/${req.params.id}`);
+                })
+                .catch(function (error) {
+                  console.log(error);
+                  res.redirect(`/productos/id/${req.params.id}`);
+                });
+            })
+            .catch(function (error) {
+              console.log(error);
+              res.redirect(`/productos/id/${req.params.id}`);
+            });
+        } else {
+          return res.render('login');
+        }
+    },
+}
+      
 
 module.exports = productController;
