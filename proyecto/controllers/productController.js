@@ -56,7 +56,6 @@ let productController = {
         foto: form.imagen,
         posicion: form.posicion,
         detalle: form.detalle,
-        fecha_carga: form.fechaCarga
         })
         .then(function (producto) {
             return res.redirect('/');
