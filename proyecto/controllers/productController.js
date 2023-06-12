@@ -22,19 +22,13 @@ let productController = {
        
         modelos.Producto.findAll({
           where: {
-            [Op.or]: [
-              { posicion: 'arquero' },
-              { posicion: 'defensor' },
-              { posicion: 'volante' },
-              { posicion: 'delantero' }
-            ]
+             posicion: [ 'arquero', 'defensor' ,'volante', 'delantero']
           },
           include: [{ association: 'comentario' }, { association: 'usuario' }],
-          order: [['createdAt', 'DESC']]
+          order: [['posicion', 'ASC'], ['createdAt', 'DESC']]
         
         })
         .then(function(posiciones){
-         
           return res.render('index', {posiciones: posiciones});
         })
         .catch(function(error){

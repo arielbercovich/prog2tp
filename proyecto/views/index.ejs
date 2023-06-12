@@ -41,135 +41,33 @@
 			<div class="col-12">
 				
 				<p class="products-title">
-					ARQUEROS
+					JUGADORES
 				</p>
 			</div>
 			<!-- Show the "ultimos" products -->
 			
-			
-			<% if (posiciones.arquero && posiciones.arquero.length > 0) { %>
-				<% for(let i=0; i < posiciones.arquero.length; i++){%>
+
+			<% for (let i = 0; i<posiciones.length; i++) { %>
+				
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
 							<a href="../public/images/products/<%= posiciones.id %>"> //chequear ruta 
 							
 								<div class="contenedor-imagen">
 					
-									<img class="product-box_image"src="/images/products/<%= posiciones.arquero[i].foto %>" alt="Jugador">
+									<img class="product-box_image"src="/images/products/<%= posiciones[i].foto %>" alt="Jugador">
 
 								</div>
 								<article class="product-box_data">
-									<h2><%= posiciones.arquero[i].nombre_producto %></h2>
-									<p><%= posiciones.arquero[i].detalle %></p>
+									<h2><%= posiciones[i].nombre_producto %></h2>
+									<p><%= posiciones[i].detalle %></p>
 									
 								</article>
 							</a>
 						</section>
 					</div>
 			<%}%>
-		 <% } %>
-		</div>
-	</div>
-
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				
-				<p class="products-title">
-					DEFENSORES
-				</p>
-			</div>
-			<!-- Show the "ultimos" products -->
-			
-			
-			<% if (posiciones.defensor && posiciones.defensor.length > 0) { %>
-			<% for(let i=0; i<posiciones.defensor.length; i++){%>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="../public/images/products/<%=posiciones.defensor[i].id%>">
-						<div class="contenedor-imagen">
-				
-							<img class="product-box_image"src="<%= posiciones.defensor[i].foto %>" alt="Jugador">
-
-						</div>
-						<article class="product-box_data">
-							<h2><%= posiciones.defensor[i].nombre_producto %></h2>
-							<p><%= posiciones.defensor[i].detalle %></p>
-								
-						</article>
-					</a>
-				</section>
-			</div>
-			<%}%>
-		 <% } %>
-		</div>
-	</div>
-
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				
-				<p class="products-title">
-					VOLANTES
-				</p>
-			</div>
-			<!-- Show the "ultimos" products -->
-			
-			
-			<% if (posiciones.volante && posiciones.volante.length > 0) { %>
-				<% for(let i=0; i<posiciones.volante.length; i++){%>
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/productos/id/<%= posiciones.volante[i].id%>">
-							<div class="contenedor-imagen">
-				
-								<img class="product-box_image"src="/images/products/<%= posiciones.volante[i].foto %>" alt="Jugador">
-
-							</div>
-							<article class="product-box_data">
-								<h2><%= posiciones.volante[i].nombre_producto %></h2>
-								<p><%= posiciones.volante[i].detalle %></p>
-								
-							</article>
-						</a>
-					</section>
-				</div>
-				<%}%>
-			<% } %>
-		</div>
-	</div>
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				
-				<p class="products-title">
-					DELANTEROS
-				</p>
-			</div>
-			<!-- Show the "ultimos" products -->
-			
-			
-			<% if (posiciones.delantero && posiciones.delantero.length > 0) { %>
-				<% for(let i=0; i<posiciones.delantero.length; i++){%>
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/productos/id/<%= posiciones.delantero[i].id%>">
-							<div class="contenedor-imagen">
-				
-								<img class="product-box_image"src="/images/products/<%= posiciones.delantero[i].foto %>" alt="Jugador">
-
-							</div>
-							<article class="product-box_data">
-								<h2><%= posiciones.delantero[i].nombre_producto %></h2>
-								<p><%= posiciones.delantero[i].detalle %></p>
-								
-							</article>
-						</a>
-					</section>
-				</div>
-				<%}%>
-			<%}%>
-
+		
 		</div>
 	</div>
 	<!-- /Novedades -->
