@@ -567,3 +567,8 @@ textarea.form-input {
     margin: auto;
   }
 }
+
+.product-box_image {
+	max-width: 100%;
+	height: auto;
+}
