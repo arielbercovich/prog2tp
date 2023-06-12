@@ -76,7 +76,7 @@ let loginController = {
                             res.cookie('cookieRecordacion', 'valor', { maxAge: 1000 * 60 * 123123123 })
                         }
 
-                        return res.redirect('/login');
+                        return res.redirect('/');
                     }
                     else {
                         error.mensaje = 'La contraseña no coincide';
