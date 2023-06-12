@@ -34,33 +34,36 @@ let productController = {
         
         })
         .then(function(posiciones){
-          res.render('index', {posiciones: posiciones});
+         
+          return res.render('index', {posiciones: posiciones});
         })
         .catch(function(error){
           console.log(error);
           res.status(500).send('Error');
         });
       },
+    
     add: function (req, res){
         let form = req.params;
         let userId = req.Usuario.id
         
         modelos.Producto.create({
-            id_usuario: userId,
-            nombre_producto: form.nombre_producto,
-            descripcion: form.descripcion,
-            foto: form.fotoPerfil,
-            posicion: form.posicion,
-            detalle: form.detalle,
-          })
-        .then(function(producto){
-            return res.redirect('/', 'Producto añadido con exito')
+        id_usuario: req.session.user.id,
+        nombre_producto: form.nombreProducto,
+        descripcion: form.descripcion,
+        foto: form.imagen,
+        posicion: form.posicion,
+        detalle: form.detalle
         })
-        .catch(function(error){
+        .then(function (producto) {
+            return res.redirect('/', 'Producto añadido con éxito');
+        })
+        .catch(function (error) {
             console.log(error);
-            return res.render('product-add', 'Ocurrió un error')
-        })
-    },
+            return res.render('product-add', { mensaje: 'Ocurrió un error al agregar el producto' });
+        });
+    }
+    ,
     product: function (req, res){
         
         return res.render('product', {nombre: lista[0].nombre, descripcion: lista[0].descripcion, imagen: lista[0].imagen, comentarios: lista[0].comentarios})

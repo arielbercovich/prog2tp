@@ -30,10 +30,10 @@
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
 				
-			<form method="GET" action="/">
+			<form method="POST" action="/" enctype="multipart/form-data"> <!--enctype sirve para poder enviar archivos-->
 			  
 				<label>Nombre del jugador:</label>
-				<input type="text" name="nombreProducto" ><br>
+				<input type="text" name="nombre_producto" ><br>
 
 				<label>Posición:</label>
 				<select name="posicion">
@@ -47,7 +47,7 @@
 				<textarea name="descripcion" ></textarea><br>
 
 				<label>Detalle:</label>
-				<textarea name="descripcion" ></textarea><br>	
+				<textarea name="detalle" ></textarea><br>	
 
 				<label>Imagen:</label>
 				<input type="file" name="imagen" ><br>
