@@ -62,8 +62,7 @@ let productController = {
             console.log(error);
             return res.render('product-add', { mensaje: 'Ocurrió un error al agregar el producto' });
         });
-    }
-    ,
+    },
     product: function (req, res){
         
         return res.render('product', {nombre: lista[0].nombre, descripcion: lista[0].descripcion, imagen: lista[0].imagen, comentarios: lista[0].comentarios})
