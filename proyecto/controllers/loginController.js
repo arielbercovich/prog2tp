@@ -56,7 +56,7 @@ let loginController = {
             .then(function (userEncontrado) {
                 let error = {}
                 if (userEncontrado == null) {
-                    error.mensaje = 'El email que ingresaste no está registrado'
+                    error.mensaje = 'El email que ingresaste no está registradoo'
                     res.locals.errors = error;
                     console.log(error);
                     return res.render('login');
