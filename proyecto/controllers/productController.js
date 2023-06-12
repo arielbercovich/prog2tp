@@ -40,19 +40,24 @@ let productController = {
           res.status(500).send('Error');
         });
       },
-    add: function (req, res) {
+    add: function(req, res){
+        return res.render ('product-add')
+    },
+    addProduct: function (req, res) {
         let form = req.body;
-    
+
+
         modelos.Producto.create({
         id_usuario: req.session.user.id,
-        nombre_producto: form.nombreProducto,
+        nombre_producto: form.nombre_producto,
         descripcion: form.descripcion,
         foto: form.imagen,
         posicion: form.posicion,
-        detalle: form.detalle
+        detalle: form.detalle,
+        fecha_carga: form.fechaCarga
         })
         .then(function (producto) {
-            return res.redirect('/', 'Producto añadido con éxito');
+            return res.redirect('/');
         })
         .catch(function (error) {
             console.log(error);
