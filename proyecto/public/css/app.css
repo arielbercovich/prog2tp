@@ -217,10 +217,7 @@ hr {
   border-bottom: 1px solid var(--light-gray);
   width: 500x;
   height: 500px;
-  object-fit: contain;
-  
-
-  
+  object-fit: contain; 
 }
 .contenedor-imagen img {
   max-width: 100%;
