@@ -81,33 +81,32 @@ let productController = {
     
     },
     comment: function (req, res) {
-        if (req.session.user !== undefined) {
-          let newComment = {
-            id_post: req.params.id,
-            texto_comentario: req.body.comentario,
-            id_usuario: req.session.user.id
-          };
-      
-          db.Comentario.create(newComment)
-            .then(function (respuesta) {
-              db.Producto.findByPk(req.params.id)
-                .then(function (posteo) {
-                  return res.redirect(`/productos/id/${req.params.id}`);
-                })
-                .catch(function (error) {
-                  console.log(error);
-                  res.redirect(`/productos/id/${req.params.id}`);
-                });
-            })
-            .catch(function (error) {
-              console.log(error);
-              res.redirect(`/productos/id/${req.params.id}`);
-            });
-        } else {
-          return res.render('login');
-        }
-    },
+      if (req.session.user == undefined) {
+        return res.redirect("/login");
+      } else {
+        let newComment = {
+          id_post: req.params.id,
+          texto_comentario: req.body.comentario,
+          id_usuario: req.session.user.id
+        };
+        db.Comentario.create(newComment)
+          .then(function (respuesta) {
+            db.Producto.findByPk(req.params.id)
+              .then(function (posteo) {
+                return res.redirect(`/productos/id/${posteo.nombre_producto}`);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      }
+    }
+       
 }
+
       
 
 module.exports = productController;
