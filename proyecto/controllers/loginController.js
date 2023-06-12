@@ -24,23 +24,22 @@ let loginController = {
     //y si el usuario quiere, agregar la cookie para que lo recuerde
 
     // },
-    profile: function (req, res) {
-        let id = req.params.id
-            db.Usuario.findByPk(id, {
-            where: [[]],
-            include : [{association: 'producto', include: [{ association: 'usuario' }]}, {association: 'comentario'}],
-            order : [['createdAt', 'ASC']], 
-            
-        })
+    profile: function (req, res) { // terminar profile. 
+        productos = db.Producto
+        usuarios = db.Usuario
         
-        .then(function(user){
-            if(user){
-                return res.render('profile', {user: user})
-            };
+
+        productos.findAll({
+            where: [{idUsuario: req.params.id}],
         })
-        .catch(function(error){
-            console.log(error);
-        });
+        .then(function(productos){
+           usuarios.findByPk(req.params.id)
+           .then(function(){
+
+           })
+
+        })
+
     },
  
         

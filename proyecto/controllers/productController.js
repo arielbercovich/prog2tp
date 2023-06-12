@@ -29,11 +29,13 @@ let productController = {
               { posicion: 'delantero' }
             ]
           },
-          include: [{ association: 'comentario' }, { association: 'usuario' }]
+          include: [{ association: 'comentario' }, { association: 'usuario' }],
+          order: [['createdAt', 'DESC']]
+        
         })
         .then(function(posiciones){
-          console.log(posiciones);
-          res.render('index', {posiciones: posiciones});
+         
+          return res.render('index', {posiciones: posiciones});
         })
         .catch(function(error){
           console.log(error);
