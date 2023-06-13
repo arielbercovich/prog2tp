@@ -25,19 +25,8 @@ let loginController = {
         })
         
 
-        productos.findAll({
-            where: [{id_usuario: req.params.id}],
-        })
-        .then(function(productos){
-           usuarios.findByPk(req.params.id)
-           .then(function(){
-
-           })
-
-        })
-
     },
- 
+
         
     
     edit: function (req, res) {
