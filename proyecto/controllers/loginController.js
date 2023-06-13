@@ -12,12 +12,17 @@ let loginController = {
             return res.render('login')
         }
     },
-    profile: function (req, res) { // terminar profile. 
-        modelos.Producto.findOne({
+    profile: function (req, res) {
+        db.Usuario.findOne({
             where: [{id: req.params.id}],
-            include: [{association: 'comentario'}, {association:'usuario'}]
+            include: [{association: 'comentario'}, {association:'producto'}]
         })
-        .then()
+        .then(function(user){
+            return res.render('profile', { user: user })
+        })
+        .catch(function(error){
+            console.log(error)
+        })
         
 
         productos.findAll({
