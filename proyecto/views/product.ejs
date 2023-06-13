@@ -70,8 +70,9 @@
 
 				
 					</section>
-					<form class="form" action="/productos/id/<%= productos.id %>" method='POST'>
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+					<form class="form" action="/productos/id/<%= producto.id %>" method='POST'>
+
+						<input class="form-input" type="text" value="" name = "comentario" placeholder="Agregar comentario" >
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>
