@@ -46,6 +46,14 @@
 		
 					<p class="product-detail-description">
 						<%= producto.descripcion %></p>
+
+						<% if (locals.user) { %>
+							<% if (locals.user.id_usuario == producto.usuario.id_usuario) { %>
+							<form action="/productos/id/<%= producto.id %>" method="post">
+								<button class="borrar" type="submit"> Borrar producto </button>
+								</form>
+								<% } %>
+							<% } %> 
 						
 						
 				</article>

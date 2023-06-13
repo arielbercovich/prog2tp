@@ -68,6 +68,36 @@ let productController = {
           });
     
     },
+    delete: function(req, res){
+      if (req.session.user == undefined) {
+        return res.redirect('')
+     } else {
+        modelos.Producto.findByPk(req.params.id) 
+        .then(function(producto){
+            if(producto.id_usuario == req.session.user.id_usuario){
+                modelos.Producto.destroy({ 
+                    where: {id : req.params.id}
+                })
+                .then (function(borrar){
+                    modelos.Comentario.destroy({
+                        where: {id : req.params.id}
+                    })
+                    .then(function(borrado){
+                        return res.redirect ('/productos/id/:id?')
+                    })
+                    .catch(error => console.log(error))
+                })
+                .catch(error => console.log(error))
+            } else {
+                return res.redirect('/')
+            }
+        })
+    }
+
+
+    },
+
+
     comment: function (req, res) {
       if (req.session.user == undefined) {
         return res.redirect("/login");
