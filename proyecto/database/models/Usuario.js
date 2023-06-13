@@ -6,6 +6,9 @@ module.exports = function (sequelize, dataTypes){
             autoIncrement: true,
             type: dataTypes.INTEGER
         },
+        usuario: {
+            type: dataTypes.STRING(45)
+        },
         email:{
             type: dataTypes.STRING(50)
         },

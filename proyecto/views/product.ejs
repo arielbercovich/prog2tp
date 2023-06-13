@@ -34,17 +34,20 @@
 			<!-- <h2 class="products-title">Creado por: <%= producto.id_usuario %></h2> <br/> -->
 
 			<h2 class="products-title"><%= producto.nombre_producto %></h2> 
-			
+
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
+
 					<img src="<%= producto.foto %>" alt="" class="product-detail-img">
+					<h3><a href="/profile/<%= producto.usuario.id_usuario %>">Jugador subido por:
+						<%= producto.usuario.usuario %> </h3> </a>
 					<h2>Descripción:</h2>
 		
 					<p class="product-detail-description">
 						<%= producto.descripcion %></p>
-						<h2> <a href="/profile/<%= producto.id_usuario%>"> </a> </h2>
+						
 						
 				</article>
 

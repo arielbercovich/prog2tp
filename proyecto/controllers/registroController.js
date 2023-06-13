@@ -13,6 +13,7 @@ let registroController = {
         console.log(form);
         let nuevo = {
             email: form.email,
+            usuario: form.usuario,
             contrasena: bcrypt.hashSync(form.contrasena, 10),
             info_foto: form.info_foto,
             dni: form.dni,

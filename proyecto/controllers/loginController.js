@@ -12,25 +12,16 @@ let loginController = {
             return res.render('login')
         }
     },
-    // processLogin: function (req, res){
-    // tengo qur buscsar los datos de la db 
-    //ponerlos en la session
-
-
-    // return res.send(req.session){
-    // email: 'traer de base de datos',
-    // userName: 'traer de base de datos'
-    // }
-    //y si el usuario quiere, agregar la cookie para que lo recuerde
-
-    // },
     profile: function (req, res) { // terminar profile. 
-        productos = db.Producto
-        usuarios = db.Usuario
+        modelos.Producto.findOne({
+            where: [{id: req.params.id}],
+            include: [{association: 'comentario'}, {association:'usuario'}]
+        })
+        .then()
         
 
         productos.findAll({
-            where: [{idUsuario: req.params.id}],
+            where: [{id_usuario: req.params.id}],
         })
         .then(function(productos){
            usuarios.findByPk(req.params.id)
