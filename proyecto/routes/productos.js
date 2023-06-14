@@ -8,9 +8,8 @@ router.post('/add', productController.addProduct);
 router.get('/id/:id', productController.show);
 router.post('/id/:id?', productController.comment);
 router.post('/delete/:id', productController.delete);
+// router.get("/edit/:id" , productController.edit)
 
-
-// router.get('/nombre', productController.nombre);
 
 
 module.exports = router;

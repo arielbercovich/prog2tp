@@ -98,7 +98,6 @@ let productController = {
       }
     },
     
-  
     comment: function (req, res) {
       if (req.session.user == undefined) {
         return res.redirect("/login");
@@ -124,8 +123,29 @@ let productController = {
         .catch(function (error) {
           console.log(error);
         });
-    }
+    },
     
+  //   edit: function(req, res){
+  //     if (req.session.user == undefined) {
+  //         return res.redirect('/')
+  //     } else {
+  //         productos.findByPk(req.params.id)
+  //         .then(function(producto){
+  //             if(producto.id_usuario == req.session.user.id){
+  //                 modelos.Producto.findOne({
+  //                     where: [{id: req.params.id}]
+  //                 })
+  //                 .then (function(prod){
+  //                     return res.render('edit' , {productos: prod});
+  //                 })
+  //                 .catch(error => console.log(error))
+  //             } else {
+  //                 return res.redirect('/')
+  //             }
+  //         })
+  //         .catch(error => console.log(error))
+  //     }
+  // },
        
 }
 

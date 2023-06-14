@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<head>
+
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link width="" rel="shortcut icon" href="./images/logo-mercado-liebre.jpg" />
+	
+	<title> Mercado Liebre Argentina</title>
+			<!-- Font Awesome Stylesheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+	<!-- Bootstrap Grid Stylesheet -->
+	<link rel="stylesheet" href="./css/bootstrap-grid.min.css">
+	<!-- Own Stylesheet -->
+	<link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+
+	<!-- Header -->
+	<% if (locals.user != undefined) {%>
+		<%- include('partials/headerLogueado') %>
+
+	<% } else { %>
+		<%- include('partials/header') %>
+
+	<% } %>
+
+
+	<!-- /Header -->
+	<!-- Banner -->
+	<div class="banner">
+		<img src="/images/products/portada final.jpg" alt="Banner">
+	</div>
+	<!-- /Banner -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				
+				<p class="products-title">
+					JUGADORES
+				</p>
+			</div>
+			<!-- Show the "ultimos" products -->
+			
+            <!-- <% for ( let i=0 ; i < productos.length; i++) { %>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <section class="product-box">
+                            <figure class="product-box_image">
+                            <a href="/productos/<%= productos[i].nombre_producto %> "> <img src="/images/products/<%=productos[i].foto %>" alt="foto producto"></a>
+                            </figure>
+                            <article class="product-box_data">
+                                <h2 class="producto"> <a href="/product/<%= productos[i].nombre_producto %> "><%= productos[i].nombre_producto %> </h2> </a>
+                                <p> <%= productos[i].descripcion%> </p>
+                                <p> Cantidad de comentarios: <%= productos[i].comentario.length%> </p>
+                                <p><a href="/users/profile/<%= productos[i].usuario.id%> "> Subido por: <%= productos[i].usuario.nombre_usuario %> </p> </a>
+    
+                            </article>
+                        
+                    </section>
+                </div>
+                <% } %> -->
+
+
+
+
+            <!-- /footer> -->
+	<%- include('../views/partials/footer.ejs') %>
+	<!-- /footer -->
+</body>	
+</html>
