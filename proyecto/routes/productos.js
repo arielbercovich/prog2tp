@@ -7,7 +7,7 @@ router.post('/add', productController.addProduct);
 
 router.get('/id/:id', productController.show);
 router.post('/id/:id?', productController.comment);
-
+router.post('/delete/:id', productController.delete);
 
 
 // router.get('/nombre', productController.nombre);

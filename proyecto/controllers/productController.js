@@ -76,6 +76,7 @@ let productController = {
           modelos.Producto.findByPk(req.params.productId) 
           .then(function(producto){
               if(producto.id_usuario == req.session.user.id_usuario){
+                console.log(producto.id_usuario)
                   modelos.Producto.destroy({ 
                       where: {id : req.params.productId}
                   })
