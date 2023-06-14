@@ -33,16 +33,17 @@ let loginController = {
     
     edit: function (req, res) {
         let user = req.session.user
-        db.Usuario.update(user, {
-            where: [{
-                email: req.body.email,
+        db.Usuario.update({
+            email: req.body.email,
                 usuario: req.body.usuario,
                 contrasena: bcrypt.hashSync(req.body.contrasena, 10),
                 fecha: req.body.fechaNacimiento,
                 dni: req.body.nroDocumento,
-                foto: req.body.info_foto,
-            }],
-        })
+                foto: req.body.info_foto},
+            {where: [{
+                user: req.session.user
+            }],}
+        )
         
         return res.render('profile-edit')
     },
