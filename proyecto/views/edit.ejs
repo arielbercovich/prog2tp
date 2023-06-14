@@ -38,12 +38,7 @@
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
-			<div class="col-12">
-				
-				<p class="products-title">
-					JUGADORES
-				</p>
-			</div>
+			
 			<!-- Show the "ultimos" products -->
 			
 			<div class="container products-wrapper">
@@ -59,14 +54,14 @@
 					</div>
 					<!-- Show the "ultimos" products -->
 					<section class="form-register">
-						<form action="/productos/editar/<%= producto.id %> " method="post" name="form-register" enctype="multipart/form-data">
-							<input class="form-input1" type="text" name="nombre" value="<%= producto.nombre %> ">
-							<input class="form-input1" type="text" name="descripcion" value="<%= producto.descripcion %> ">
-							<input class="form-input1" type="file" name="imagen" value="<%= producto.foto %>"
-								value="Ingrese Imagen">
-							<button type="submit" class="btn mt-3 ml-4">POSTEAR PRODUCTO</button>
+						<form action="/productos/editar/<%= producto.id %>" method="post" name="form-register">
+						  <input class="form-input1" type="text" placeholder="Nombre" name="nombre" value="<%= producto.nombre %>">
+						  <input class="form-input1" type="text" placeholder="Descripción" name="descripcion" value="<%= producto.descripcion %>">
+						  <input class="form-input1" type="text" placeholder="Foto" name="foto" value="<%= producto.foto %>">
+						  <button type="submit" class="btn mt-3 ml-4">EDITAR PRODUCTO</button>
 						</form>
-					</section>
+					  </section>
+					  
 				
 
 

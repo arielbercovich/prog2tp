@@ -29,7 +29,7 @@
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
-					<a class="btn mt-3 ml-4" href="/">CERRAR SESIÓN</a>
+					
 				</div>
 				<div>
 					<ul class="">
@@ -47,7 +47,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Mis productos favoritos</h2>
+				<h2 class="products-title">Jugadores añadidos por <%=user.usuario%></h2>
 			</div>
 			<!-- Show mis productos -->
 				<% if (user.producto && user.producto.length > 0) { %>
@@ -60,9 +60,9 @@
 						</a>
 					  
 						<div class="contenedor-imagen">
-			
+							<a href='/productos/id/<%=user.producto[i].id%>'">
 							<img class="product-box_image"src="<%= user.producto[i].foto %>" alt="Jugador">
-
+						</a>
 						</div>
 						<article class="product-box_data">
 							<h2><%= user.producto[i].nombre_producto %></h2> 

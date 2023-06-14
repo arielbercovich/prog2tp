@@ -40,24 +40,24 @@
 				<article class="col-12 col-lg-8 product-detail-info">
 
 					<img src="<%= producto.foto %>" alt="" class="product-detail-img">
-					<h3><a href="/profile/<%= producto.usuario.id_usuario %>">Jugador subido por:
+					<h3><a href="/login/profile/<%= producto.id_usuario %>">Jugador subido por:
 						<%= producto.usuario.usuario %> </h3> </a>
-					<h2>Descripción:</h2>
-		
-					<p class="product-detail-description">
-						<%= producto.descripcion %></p>
+						
+						<h2>Descripción:</h2>
+					<p class="product-detail-description"><%= producto.descripcion %></p>
 
 						<% if (locals.user) { %>
 							<% if (locals.user.id == producto.usuario.id) { %>
 							  <form action="/productos/delete/<%= producto.id %>" method="post">
 								<button class="borrar" type="submit"> Borrar jugador </button>
 							  </form>
-							  <a href="/productos/edit/<%= producto.id%>" class="borrar">Editar Producto</a>
+							  <a href="/productos/edit/<%= producto.id%>" class="borrar"><button class='borrar' type='submit'>Editar jugador</button> </a>						
+					
 							<% } else { %>
-							  <h2>No podes borrar el perfil de este jugador ya que no lo publicaste vos </h2>
+							  <h2>No podes borrar o editar el perfil de este jugador ya que no lo publicaste vos </h2>
 							<% } %>
 						  <% } else { %>
-							<h2>Para poder borrar el perfil de un jugador, debes iniciar sesión.</h2>
+							<h2>Para poder borrar o editar el perfil de un jugador, debes iniciar sesión.</h2>
 						  <% } %>
 						  
 						  
@@ -73,7 +73,7 @@
 							<h2>Comentarios:</h2>
 							<% for (let i=0; i< producto.comentario.length; i ++) { %>
 								<p class="user">
-								  <strong> <a href="/profile/<%=producto.comentario[i].id_usuario%>"><%=  producto.comentario[i].id_usuario %> </a> </strong>
+								  <strong> <a href="/login/profile/<%=producto.comentario[i].id_usuario%>"><%= producto.comentario[i].id_usuario %> </a> </strong>
 								  <%= producto.comentario[i].texto_comentario %>
 						  
 								</p>

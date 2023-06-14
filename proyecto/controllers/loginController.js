@@ -16,7 +16,7 @@ let loginController = {
     profile: function (req, res) {
         db.Usuario.findOne({
             where: [{id: req.params.id}],
-            include: [{association: 'comentario'}, {association:'producto'}]
+            include: [{association: 'comentario'}, {association:'producto', order: [['createdAt', 'ASC']]}]
         })
         .then(function(user){
            
@@ -28,24 +28,22 @@ let loginController = {
                });
         
     },
-
-        
     
     edit: function (req, res) {
         let user = req.session.user
         db.Usuario.update({
             email: req.body.email,
                 usuario: req.body.usuario,
-                contrasena: bcrypt.hashSync(req.body.contrasena, 10),
+                contrasena: req.body.contrasena,
                 fecha: req.body.fechaNacimiento,
                 dni: req.body.nroDocumento,
                 foto: req.body.info_foto},
             {where: [{
-                user: req.session.user
+                id: req.params.id
             }],}
         )
         
-        return res.render('profile-edit')
+        return res.render('profile-edit', {user: user})
     },
 
     show: function (req, res) {

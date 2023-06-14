@@ -61,9 +61,8 @@ let productController = {
                 for(let i =0; i<producto.comentario.length; i++){
                 modelos.Usuario.findByPk(producto.comentario[i].id_usuario)
                 }
-            return res.render("product", {producto: producto}) 
-
-            })
+                return res.render("product", {producto: producto}) 
+              })
         .catch(function (error) {
             console.log(error);
           });
@@ -108,13 +107,6 @@ let productController = {
         texto_comentario: req.body.comentario,
         id_usuario: req.session.user.id
       };
-      // modelos.Comentario.findAll( {
-      //   include: [
-      //       {association: "usuario"},{association: "comentario"}],
-      //     order: [
-      //         ['createdAt', 'DESC']
-      //     ],
-      //   }),
         
       modelos.Comentario.create(newComment)
         .then(function (respuesta) {
@@ -150,32 +142,22 @@ let productController = {
           });
       }
   },
-  editar: function(req, res){
-    
-    let producto = {
-           nombre: req.body.nombre_producto,
-           descripcion: req.body.descripcion,
-          //  imagen: req.file.filename,
-           id_usuario: req.session.user.id
-       }
-   productos.update(producto, {
-           where: [{
-               id: req.params.id
-           }]
-       })
-       .then(function (respuesta) {
-           productos.findByPk(req.params.id)
-               .then(function (product) {
-                   return res.redirect(`/productos/${producto.nombre}`)
-               })
-               .catch(function (error) {
-                console.log(error);
-              });
-       })
-       .catch(function (error) {
-        console.log(error);
-      });
-},
+    editar: function (req, res) {
+        let producto = {
+          nombre_producto: req.body.nombre,
+          descripcion: req.body.descripcion,
+          foto: req.body.foto};
+
+        modelos.Producto.update(producto, {
+          where: {id: req.params.id}
+        })
+          .then(function (result) {
+            return res.redirect(`/productos/id/${req.params.id}`);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
 
 }
        
