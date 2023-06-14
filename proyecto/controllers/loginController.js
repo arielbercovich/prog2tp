@@ -19,13 +19,13 @@ let loginController = {
             include: [{association: 'comentario'}, {association:'producto'}]
         })
         .then(function(user){
+           
             return res.render('profile', { user: user })
         })
         .catch(function(error){
             console.log(error)
         })
         
-
     },
 
         

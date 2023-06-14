@@ -46,19 +46,28 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			
-            <% for ( let i=0 ; i < producto.length; i++) { %>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <section class="form-register">
-						<form action="/productos/id/<%= producto.id %> " method="post" name="form-register" enctype="multipart/form-data">
-							<input class="form-input1" type="text" name="nombre" value="<%= producto.nombre_producto %> ">
+			<div class="container products-wrapper">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="products-title">Editar producto</h2>
+					</div>
+					<div class="col-11">
+					<% if (locals.errores) {%> 
+						<%= errores.message  %>  
+					<% } %> 
+					</div>
+					</div>
+					<!-- Show the "ultimos" products -->
+					<section class="form-register">
+						<form action="/productos/editar/<%= producto.id %> " method="post" name="form-register" enctype="multipart/form-data">
+							<input class="form-input1" type="text" name="nombre" value="<%= producto.nombre %> ">
 							<input class="form-input1" type="text" name="descripcion" value="<%= producto.descripcion %> ">
-							<input class="form-input1" type="file" name="foto" value="<%= producto.foto %>"
+							<input class="form-input1" type="file" name="imagen" value="<%= producto.foto %>"
 								value="Ingrese Imagen">
 							<button type="submit" class="btn mt-3 ml-4">POSTEAR PRODUCTO</button>
 						</form>
 					</section>
-                </div>
-                <% } %>
+				
 
 
 

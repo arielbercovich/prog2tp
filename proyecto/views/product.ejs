@@ -52,6 +52,7 @@
 							  <form action="/productos/delete/<%= producto.id %>" method="post">
 								<button class="borrar" type="submit"> Borrar jugador </button>
 							  </form>
+							  <a href="/productos/edit/<%= producto.id%>" class="borrar">Editar Producto</a>
 							<% } else { %>
 							  <h2>No podes borrar el perfil de este jugador ya que no lo publicaste vos </h2>
 							<% } %>
@@ -59,18 +60,7 @@
 							<h2>Para poder borrar el perfil de un jugador, debes iniciar sesión.</h2>
 						  <% } %>
 						  
-						  <% if (locals.user) { %>
-								<% if (locals.user.id == producto.usuario.id) { %>
-									<form action="/productos/id/<%= producto.id %> " method="post" name="form-register">
-										<button type="submit" class="btn mt-3 ml-4"> EDITAR  PRODUCTO</button>
-									</form>
-			
-								<% } else { %>
-							  <h2>No podes editar el perfil de este jugador ya que no lo publicaste vos </h2>
-							<% } %>
-						  <% } else { %>
-							<h2>Para poder editar el perfil de un jugador, debes iniciar sesión.</h2>
-						  <% } %>
+						  
 				</article>
 
 

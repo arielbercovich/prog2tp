@@ -127,7 +127,7 @@ let productController = {
     
     edit: function(req, res){
       if (req.session.user == undefined) {
-          return res.redirect('/')
+          return res.redirect('/login')
       } else {
           modelos.Producto.findByPk(req.params.id)
           .then(function(producto){
@@ -135,8 +135,8 @@ let productController = {
                   modelos.Producto.findOne({
                       where: [{id: req.params.id}]
                   })
-                  .then (function(prod){
-                      return res.render('edit' , {productos: prod});
+                  .then (function(producto){
+                      return res.render ('edit', {producto: producto} );
                   })
                   .catch(function (error) {
                     console.log(error);
@@ -150,8 +150,36 @@ let productController = {
           });
       }
   },
-       
+  editar: function(req, res){
+    
+    let producto = {
+           nombre: req.body.nombre_producto,
+           descripcion: req.body.descripcion,
+          //  imagen: req.file.filename,
+           id_usuario: req.session.user.id
+       }
+   productos.update(producto, {
+           where: [{
+               id: req.params.id
+           }]
+       })
+       .then(function (respuesta) {
+           productos.findByPk(req.params.id)
+               .then(function (product) {
+                   return res.redirect(`/productos/${producto.nombre}`)
+               })
+               .catch(function (error) {
+                console.log(error);
+              });
+       })
+       .catch(function (error) {
+        console.log(error);
+      });
+},
+
 }
+       
+
 
       
 
