@@ -71,35 +71,34 @@ let productController = {
     },
     delete: function(req, res) {
       if (req.session.user == undefined) {
-          return res.redirect('')
-       } else {
-          modelos.Producto.findByPk(req.params.productId) 
-          .then(function(producto){
-              if(producto.id == req.session.user.id){
-                console.log(producto.id_usuario)
-                  modelos.Producto.destroy({ 
-                      where: {id : req.params.productId}
+        return res.redirect('/login');
+      } else {
+        modelos.Producto.findByPk(req.params.id)
+          .then(function(producto) {
+            if (producto.id_usuario == req.session.user.id) {
+              modelos.Comentario.destroy({
+                where: { id_post: req.params.id } // Elimina los comentarios asociados al producto
+              })
+                .then(function(borrado) {
+                  modelos.Producto.destroy({
+                    where: { id: req.params.id } // Elimina el producto
                   })
-                  .then (function(borrar){
-                      modelos.Comentario.destroy({
-                          where: {id : req.params.productId}
-                      })
-                      .then(function(borrado){
-                          return res.redirect('/')
-                      })
-                      .catch(error => console.log(error))
-                  })
-                  .catch(error => console.log(error))
-              } else {
-                  return res.redirect('/')
-              }
-          })
+                    .then(function(borrar) {
+                      return res.redirect('/');
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                    });
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+            }
+          });
       }
-
-
-      },
-
-
+    },
+    
+  
     comment: function (req, res) {
       if (req.session.user == undefined) {
         return res.redirect("/login");

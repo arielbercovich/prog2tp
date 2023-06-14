@@ -48,13 +48,17 @@
 						<%= producto.descripcion %></p>
 
 						<% if (locals.user) { %>
-							<% if (locals.user.id_usuario == producto.usuario.id_usuario) { %>
-							<form action="/productos/delete/<%= producto.id %>" method="post">
-								<button class="borrar" type="submit"> Borrar producto </button>
-								</form>
-								<% } %>
-							<% } %> 
-						
+							<% if (locals.user.id == producto.usuario.id) { %>
+							  <form action="/productos/delete/<%= producto.id %>" method="post">
+								<button class="borrar" type="submit"> Borrar jugador </button>
+							  </form>
+							<% } else { %>
+							  <h2>No podes borrar ni editar a este jugador, ya que no lo publicaste vos </h2>
+							<% } %>
+						  <% } else { %>
+							<h2>Para poder borrar o editar un jugador, debes iniciar sesión.</h2>
+						  <% } %>
+						  
 						
 				</article>
 
