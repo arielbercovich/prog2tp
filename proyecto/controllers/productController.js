@@ -109,7 +109,14 @@ let productController = {
         texto_comentario: req.body.comentario,
         id_usuario: req.session.user.id
       };
-    
+      // modelos.Comentario.findAll( {
+      //   include: [
+      //       {association: "usuario"},{association: "comentario"}],
+      //     order: [
+      //         ['createdAt', 'DESC']
+      //     ],
+      //   }),
+        
       modelos.Comentario.create(newComment)
         .then(function (respuesta) {
           return res.redirect(`/productos/id/${req.params.id}`);
