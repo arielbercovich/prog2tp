@@ -138,12 +138,16 @@ let productController = {
                   .then (function(prod){
                       return res.render('edit' , {productos: prod});
                   })
-                  .catch(error => console.log(error))
+                  .catch(function (error) {
+                    console.log(error);
+                  });
               } else {
                   return res.redirect('/')
               }
           })
-          .catch(error => console.log(error))
+          .catch(function (error) {
+            console.log(error);
+          });
       }
   },
        
