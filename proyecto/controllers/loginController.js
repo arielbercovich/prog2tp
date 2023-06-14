@@ -2,6 +2,7 @@ let fav = require('../db/productos.js');
 let db = require('../database/models')
 let op = db.Sequelize.Op;
 let bcrypt = require("bcryptjs");
+const Usuario = require('../database/models/Usuario.js');
 
 let loginController = {
     index: function (req, res) {
@@ -54,7 +55,8 @@ let loginController = {
                     if (comparacion) {
                         req.session.user = {
                             email: userEncontrado.email,
-                            id: userEncontrado.id
+                            id: userEncontrado.id,
+                            usuario: userEncontrado.usuario
                         }
 
                         if (req.body.recordarme != undefined) {
