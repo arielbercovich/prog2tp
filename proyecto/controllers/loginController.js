@@ -22,17 +22,31 @@ let loginController = {
            
             return res.render('profile', { user: user })
         })
-        .catch(function(error){
-            console.log(error)
-        })
+        
+            .catch(function (error) {
+                 console.log(error);
+               });
         
     },
 
         
     
     edit: function (req, res) {
+        let user = req.session.user
+        db.Usuario.update(user, {
+            where: [{
+                email: req.body.email,
+                usuario: req.body.usuario,
+                contrasena: bcrypt.hashSync(req.body.contrasena, 10),
+                fecha: req.body.fechaNacimiento,
+                dni: req.body.nroDocumento,
+                foto: req.body.info_foto,
+            }],
+        })
+        
         return res.render('profile-edit')
     },
+
     show: function (req, res) {
         let form = req.body
         db.Usuario.findOne({
