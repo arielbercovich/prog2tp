@@ -34,30 +34,22 @@
 			Eliminen estás líneas y coloquen el formulario. <br>
 			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
 			//////////////// -->
-			<form method="POST" action="/">
-				<label>Email:</label>
-				<input type="email" name="email" value="<%= user.email %>"><br>
-			  
-				<label>Usuario:</label>
-				<input type="text" name="usuario" value="<%= user.usuario %>"><br>
-			  
-				<label>Contraseña:</label>
-				<input type="password" name="contrasena" value="<%= user.contrasena %>"><br>
-			  
-				<label>Fecha de nacimiento:</label>
-				<input type="date" name="fechaNacimiento" value="<%= user.fecha %>"><br>
-			  
-				<label>Número de documento:</label>
-				<input type="number" name="nroDocumento" value="<%= user.dni %>"><br>
-			  
-				<label>Foto de perfil:</label>
-				<input type="text" name="fotoPerfil" value="<%= user.foto %>"><br>
-			  
-				<button type="submit">Guardar cambios</button>
-			  </form>
-			  
-			</h2>
+		
 
+			<section class="form-register">
+				<form action="/login/edit/<%= user.id%>" method="post" >
+					<input  type="email" name="email" id="nombres" value="<%= user.email %>" >
+					<input  type="text" name="usuario" id="nombres" value="<%= user.usuario %>">
+					<input  type="password" name="contrasenaAnterior" id="nombres" placeholder="Ingrese su contraseña anterior">
+					<input type="password" name="contrasena" id="nombres" placeholder="Ingrese su nueva contraseña ">
+					<input type="date" name="fecha" id="nombres" placeholder="Ingrese su fecha de nacimiento">
+					<input  type="number" name="documento" id="nombres" value="<%= user.dni %>" placeholder="DNI">
+					<input  type="text" name="imagen" id="nombres" value="<%= user.foto %>" placeholder="FOTO">
+					<input  type="hidden" name="id" id="nombres" value ="<%= user.id %>">
+
+					<button type="submit">Guardar informacion</button>
+				</form>
+			</section>
 
 	<!-- footer -->
 	<%- include('partials/footer') %>

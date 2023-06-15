@@ -27,34 +27,114 @@ let loginController = {
                });
         
     },
-    
+    profileEdit: function (req, res) {
+        if (req.session.user == undefined) {
+            return res.redirect('/login')
+        } else {
+            return res.render('profile-edit')
+        }
+    },
     
     edit: function (req, res) {
-        let user = req.session.user;
+        //detectar errores de los datos del usuairo en el form 
+        let errores = {}
+        if (req.body.usuario == '') {
+            errores.message = "El nombre de usuario es obligatorio"
+            res.locals.errores = errores
+            return res.render('profile-edit');
+        } else if (req.body.email == '') {
+            errores.message = "El email es obligatorio" 
+            res.locals.errores = errores 
+            return res.render('profile-edit');
+        } else if (req.body.contrasena == '') {
+            errores.message = "La contraseña es obligatoria"
+            res.locals.errores = errores
+            return res.render('profile-edit');
+        } else if (req.body.contrasena.length < 3) {
+            errores.message = "La contraseña tiene que tener al menos 3 caracteres" 
+            res.locals.errores = errores
+            return res.render('profile-edit');
+        } else if (req.body.contrasenaAnterior == '') {
+            errores.message = "Escriba su contraseña anterior" 
+            res.locals.errores = errores
+            return res.render('profile-edit');
+        } else {
+            db.Usuario.findOne({
+                    where: [{
+                        email: req.body.email
+                    }]
+                })
+                .then(function (user) {
+                    if (user) {
+                        //chequear que la contrasena anterior es correcta 
+                        let compare = bcrypt.compareSync(req.body.contrasenaAnterior, user.contrasena)
+                        if (compare) {
+                            let user = {
+                                email: req.body.email,
+                                usuario: req.body.usuario,
+                                contrasena: bcrypt.hashSync(req.body.contrasena, 10), //vamos a hashear la contrasena que viene del form
+                                fecha: req.body.fecha,
+                                documento: req.body.dni,
+                                foto: req.body.foto
+                            }
+                            db.Usuario.update(user, {
+                                    where: [{
+                                        id: req.body.id
+                                    }]
+                                })
+                                .then(function (user) {
+
+                                    return res.redirect('/')
+
+                                })
+                                .catch(function (error) {
+                                    console.log(error);
+                                  });
+                        } else {
+                            errores.message = "La contraseña anterior es incorrecta" 
+                            res.locals.errores = errores 
+                            return res.render('profile-edit');
+                        }
+                    } else {
+                        errores.message = "El mail no esta registrado" 
+                        res.locals.errores = errores 
+                        return res.render('register');
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                  });
+                
+        }
+    },
+    
+    // edit: function (req, res) {
+    //     let user = req.session.user;
       
-        db.Usuario.update(
-          {
-            email: req.body.email,
-            usuario: req.body.usuario,
-            contrasena: req.body.contrasena,
-            fecha: req.body.fechaNacimiento,
-            dni: req.body.nroDocumento,
-            foto: req.body.fotoPerfil
-          },
-          {
-            where: {
-              id: req.params.id
-            }
-          }
-        )
-          .then(function(user){
-            return res.render('profile-edit', { user: user });
-          })
-          .catch(function (errores) {
-            console.log(errores);
-        })
-      },
+    //     db.Usuario.update(
+    //       {
+    //         email: req.body.email,
+    //         usuario: req.body.usuario,
+    //         contrasena: req.body.contrasena,
+    //         fecha: req.body.fechaNacimiento,
+    //         dni: req.body.nroDocumento,
+    //         foto: req.body.fotoPerfil
+    //       },
+    //       {
+    //         where: {
+    //           id: req.params.id
+    //         }
+    //       }
+    //     )
+    //       .then(function(user){
+    //         return res.render('profile-edit', { user: user });
+    //       })
+    //       .catch(function (errores) {
+    //         console.log(errores);
+    //     })
+    //   },
       
+
     
     show: function (req, res) {
         let form = req.body
