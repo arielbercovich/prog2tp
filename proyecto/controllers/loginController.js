@@ -56,7 +56,7 @@ let loginController = {
         })
       },
       
-
+    
     show: function (req, res) {
         let form = req.body
         db.Usuario.findOne({
