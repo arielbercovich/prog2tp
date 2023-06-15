@@ -18,7 +18,13 @@
 
 <body>
 	<!-- Header -->
-	<%- include('partials/headerLogueado')%>
+	<% if (locals.user != undefined) {%>
+		<%- include('partials/headerLogueado') %>
+
+	<% } else { %>
+		<%- include('partials/header') %>
+
+	<% } %>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -35,6 +41,9 @@
 			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
 			//////////////// -->
 		
+			<% if (locals.errors) { %>
+				<p><%=  locals.errores %></p>
+			<% } %>
 
 			<section class="form-register">
 				<form action="/login/edit/<%= user.id%>" method="post" >

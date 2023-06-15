@@ -1,6 +1,7 @@
 let db = require('../database/models')
 let op = db.Sequelize.Op;
 let bcrypt = require("bcryptjs");
+const { locals } = require('../app');
 
 
 let loginController = {
@@ -18,7 +19,7 @@ let loginController = {
             include: [{association: 'comentario'}, {association:'producto', order: [['createdAt', 'ASC']]}]
         })
         .then(function(user){
-           
+            // return res.send(res.session
             return res.render('profile', { user: user })
         })
         

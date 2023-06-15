@@ -48,19 +48,22 @@ let productController = {
             return res.render('product-add', { mensaje: 'Ocurrió un error al agregar el producto' });
         });
     },
-    product: function (req, res){
-        
-        return res.render('product', {nombre: lista[0].nombre, descripcion: lista[0].descripcion, imagen: lista[0].imagen, comentarios: lista[0].comentarios})
-    }, 
+  
+     
     show: function (req, res){
         modelos.Producto.findOne({
             where: [{id: req.params.id}],
-            include: [{association: 'comentario'}, {association:'usuario'}]
+            include: [{association: 'usuario'}, {association:'comentario', 
+            include : [{association : 'usuario'}], order : [['createdAt', 'DESC']]}
+            ]
         })
         .then(function(producto){
-                for(let i =0; i<producto.comentario.length; i++){
-                modelos.Usuario.findByPk(producto.comentario[i].id_usuario)
-                }
+          // return res.send(producto)
+                // for(let i =0; i<producto.comentario.length; i++){
+                // modelos.Usuario.findByPk(producto.comentario[i].id_usuario)
+                // }
+                // return res.send(producto)
+
                 return res.render("product", {producto: producto}) 
               })
         .catch(function (error) {

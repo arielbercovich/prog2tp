@@ -67,16 +67,18 @@
 				
 					<div class="col-12 col-lg-4">
 					  <section class="comments">
-						<article>
-						  <!-- <img src="https://via.placeholder.com/35" alt=""> -->
-						  <div class="data">
 							<h2>Comentarios:</h2>
 							<% for (let i=0; i< producto.comentario.length; i ++) { %>
-								<p class="user">
-								  <strong> <a href="/login/profile/<%=producto.comentario[i].id_usuario%>"><%= producto.comentario[i].id_usuario %> </a> </strong>
-								  <%= producto.comentario[i].texto_comentario %>
-						  
-								</p>
+								<article>
+									<img src="<%= producto.comentario[i].usuario.info_foto %>">
+									<div class="data">
+										<p class="user">
+										<strong> <a href="/login/profile/<%=producto.comentario[i].id_usuario%>"><%= producto.comentario[i].usuario.usuario %>: </a> </strong>
+										<%= producto.comentario[i].texto_comentario %>
+								
+										</p>
+									</div>
+								</article>	
 								<% } %>
 						  </div>
 						</article>
