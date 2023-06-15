@@ -24,7 +24,8 @@
 		<div class="row">
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"> <%= user.email %>
+					<img class="foto-perfil"src="<%= user.info_foto %>" alt="FotoProfile">
+					<h1 class="main-title"> <%= user.usuario %>
 						<a href="/login/profile/edit">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -32,7 +33,7 @@
 					
 				</div>
 				<div>
-					<ul class="">
+					<ul class="info-usuario">
 						<li>DNI: <%= user.dni %></li>
 						<li>Email: <%= user.email %></li>
 						<li>Fecha de nacimiento: <%= user.fecha %></li>

@@ -490,19 +490,27 @@ textarea.form-input {
 }
 
 /*====== Profile ======*/
-.info-usuario{
+.info-usuario {
   border-bottom: 1px solid #ccc;
   padding-bottom: 30px;
   font-size: 16px;
+  margin-left: 50%; /* Mueve hacia la derecha, casi la mitad de la pantalla */
+  transform: translateX(-50%); /* Ajusta el centro de referencia para el margen izquierdo */
 }
 
-.foto-perfil{
-  border-radius: 50%;
-}
+
+.foto-perfil {
+    border-radius: 100%;
+    width: 20%; /* Reduce el ancho a la mitad */
+    height: 100%; /* Reduce la altura a la mitad */
+  }
+  
 
 .main-title{
   font-size: 25px;
   margin-bottom: 10px;
+  margin-left: 6%; 
+  transform: translateX(-6%);
 }
 
 .btn{
