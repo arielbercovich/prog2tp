@@ -163,11 +163,31 @@ let loginController = {
         res.clearCookie('cookieRecordacion')
         res.redirect('/')
     },
-    search: function(req,res) {
-        let bus= req.query.search;
-
+    search: function(req,res){
+        let busc = req.query.search;
         
-    }
+        db.Usuario.findAll({
+          
+          where:{
+            [op.or]:[
+            {usuario: { [op.like]: "%" + busc + "%" }},
+            {mail: { [op.like]: "%" + busc + "%" }},
+    
+            ]},
+    
+            order: [
+              ['createdAt', 'DESC']]
+    
+             
+    
+        }).then(function(result){
+          return res.render('search-users',{usuarios: result });
+    
+        })
+    
+        .catch(function (error) {
+            return res.render('search-users', { usuarios: [] });
+        })},
 
 }
 module.exports = loginController
