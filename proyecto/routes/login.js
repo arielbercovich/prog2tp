@@ -14,6 +14,6 @@ router.post('/logout', loginController.logout);
 
 router.post('/edit/:id', loginController.edit);
 
-router.get("users/search", loginController.search)
+
 
 module.exports = router;

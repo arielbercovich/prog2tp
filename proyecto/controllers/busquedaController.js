@@ -25,8 +25,42 @@ let busquedaController = {
         .catch(function(error) {
           console.log(error);
         });
-    }
-  };
-  
-
+    },
+    search: function(req, res) {
+      let busqueda = req.query.search;
+      let display = {
+        where: {[op.or]: [{ usuario: { [op.like]: `%${busqueda}%` } }, { email: { [op.like]: `%${busqueda}%` } }]},
+        order: [['createdAt', 'DESC']],
+        include: [{ association: 'comentario' }, { association: 'producto' }]
+      };
+    
+      db.Usuario.findAll(display)
+        .then(function(results) {
+          let error = {};
+          if (results.length != 0) {
+            res.render('search-users', { results: results });
+          } else {
+            error.mensaje = `No se encontraron resultados para ${busqueda}. Intente nuevamente.`;
+            res.locals.errors = error;
+            return res.render('search-users', { results: [] });
+          }
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+    
+    showUserProfile: function(req, res) {
+      let user = req.params.id;
+    
+      // Lógica para obtener los datos del usuario y renderizar la vista correspondiente
+      // ...
+    
+      res.render('search-users', { results: [user] });
+    },
+    
+    
+    // Resto de tu código de controlador...
+    
+};
 module.exports = busquedaController;

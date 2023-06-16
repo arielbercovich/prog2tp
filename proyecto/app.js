@@ -11,7 +11,7 @@ let productosRouter = require('./routes/productos');
 let busquedaRouter = require('./routes/busqueda')
 let session = require('express-session');
 
-// let profileRouter = require('./routes/profile');
+
 
 var app = express();
 
@@ -50,17 +50,6 @@ app.use('/login', loginRouter);
 app.use('/productos', productosRouter);
 app.use('/profile/:id', loginRouter);
 app.use('/busqueda', busquedaRouter)
-// app.use('/profile', profileRouter);
-// app.post('/formulario', (req, res)=>{
-//   usuario = {
-//     email: req.body.email,
-//     usuario: req.body.usuario,
-//     contrasena: req.body.contrasena,
-//     fechaNacimiento: req.body.fechaNacimiento,
-//     nroDocumento: req.body.nroDocumento,
-//     fotoPerfil: req.body.fotoPerfil
-//   }
-// })
 
 
 // catch 404 and forward to error handler

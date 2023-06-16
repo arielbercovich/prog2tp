@@ -1,7 +1,7 @@
 let db = require('../database/models')
 let op = db.Sequelize.Op;
 let bcrypt = require("bcryptjs");
-const { locals } = require('../app');
+// const { locals } = require('../app');
 
 
 let loginController = {
@@ -14,20 +14,24 @@ let loginController = {
         }
     },
     profile: function (req, res) {
-        db.Usuario.findOne({
-            where: [{id: req.params.id}],
-            include: [{association: 'comentario'}, {association:'producto', order: [['createdAt', 'ASC']]}]
-        })
-        .then(function(user){
-            // return res.send(res.session
-            return res.render('profile', { user: user })
-        })
-        
-            .catch(function (error) {
-                 console.log(error);
-               });
-        
-    },
+  db.Usuario.findOne({
+    where: { id: req.params.id },
+    include: [
+      { association: 'comentario' },
+      {
+        association: 'producto',
+        order: [['createdAt', 'ASC']]
+      }
+    ]
+  })
+    .then(function (user) {
+      return res.render('profile', { user: user });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+},
+
     profileEdit: function (req, res) {
         if (req.session.user == undefined) {
             return res.redirect('/login')
@@ -163,31 +167,6 @@ let loginController = {
         res.clearCookie('cookieRecordacion')
         res.redirect('/')
     },
-    search: function(req,res){
-        let busc = req.query.search;
-        
-        db.Usuario.findAll({
-          
-          where:{
-            [op.or]:[
-            {usuario: { [op.like]: "%" + busc + "%" }},
-            {mail: { [op.like]: "%" + busc + "%" }},
     
-            ]},
-    
-            order: [
-              ['createdAt', 'DESC']]
-    
-             
-    
-        }).then(function(result){
-          return res.render('search-users',{usuarios: result });
-    
-        })
-    
-        .catch(function (error) {
-            return res.render('search-users', { usuarios: [] });
-        })},
-
 }
 module.exports = loginController

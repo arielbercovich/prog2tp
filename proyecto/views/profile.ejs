@@ -43,6 +43,7 @@
 						<li>DNI: <%= user.dni %></li>
 						<li>Email: <%= user.email %></li>
 						<li>Fecha de nacimiento: <%= user.fecha %></li>
+						<li>El usuario cargo: <%= user.producto.length%> productos</li>
 					</ul>
 				</div>
 			</div>
@@ -74,6 +75,9 @@
 						<article class="product-box_data">
 							<h2><%= user.producto[i].nombre_producto %></h2> 
 							 <p><%= user.producto[i].detalle %></p>
+
+
+							 
 							
 						</article>
 					</a>
