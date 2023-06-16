@@ -23,10 +23,7 @@
 		<%- include('partials/header') %>
 	<% } %>
   <!-- /Header -->
-  
-  <!-- /Header -->
-  
-  <!-- /Header -->
+
   
   <!-- Datos del usuario -->
 <section class="info-usuario container products-wrapper">
@@ -61,7 +58,7 @@
 			<div class="col-12">
 				<h2 class="products-title">Jugadores añadidos por <%=user.usuario%></h2>
 			</div>
-			<!-- Show mis productos -->
+			
 				<% if (user.producto && user.producto.length > 0) { %>
 					<% for (let i = 0; i < user.producto.length; i++) { %>
 			<div class="col-12 col-sm-6 col-lg-3">
@@ -82,6 +79,7 @@
 			</div>
 					<% } %>
 				<% } %>
+			<!-- Show mis productos -->
 	<!-- footer -->
 	<%- include('partials/footer') %>
 	<!-- /footer -->

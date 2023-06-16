@@ -1,7 +1,6 @@
 let db = require('../database/models')
 let op = db.Sequelize.Op;
 let bcrypt = require("bcryptjs");
-// const { locals } = require('../app');
 
 
 let loginController = {
@@ -20,17 +19,15 @@ let loginController = {
           where: { id: req.params.id },
           include: [
             { association: 'comentario' },
-            {association: 'producto', order: [['createdAt', 'ASC']]}
+            {association: 'producto', order: [['createdAt', 'DESC']]}
           ]
         })
         .then(function(user) {
             let isOwnProfile = false;
-
             if (loggedInUser && loggedInUser.id === user.id) {
               // El usuario en sesión es el mismo que está viendo el perfil
               isOwnProfile = true;
             }
-          
             return res.render('profile', { user: user, isOwnProfile: isOwnProfile, loggedInUser: loggedInUser });
         })
         
@@ -38,7 +35,6 @@ let loginController = {
           console.log(error);
         });
       },
-      
       
 
     profileEdit: function (req, res) {
@@ -122,9 +118,6 @@ let loginController = {
         }
     },
     
-    
-      
-
     
     show: function (req, res) {
         let form = req.body
