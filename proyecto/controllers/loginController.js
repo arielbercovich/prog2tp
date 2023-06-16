@@ -109,31 +109,7 @@ let loginController = {
         }
     },
     
-    // edit: function (req, res) {
-    //     let user = req.session.user;
-      
-    //     db.Usuario.update(
-    //       {
-    //         email: req.body.email,
-    //         usuario: req.body.usuario,
-    //         contrasena: req.body.contrasena,
-    //         fecha: req.body.fechaNacimiento,
-    //         dni: req.body.nroDocumento,
-    //         foto: req.body.fotoPerfil
-    //       },
-    //       {
-    //         where: {
-    //           id: req.params.id
-    //         }
-    //       }
-    //     )
-    //       .then(function(user){
-    //         return res.render('profile-edit', { user: user });
-    //       })
-    //       .catch(function (errores) {
-    //         console.log(errores);
-    //     })
-    //   },
+    
       
 
     
@@ -187,6 +163,7 @@ let loginController = {
         res.clearCookie('cookieRecordacion')
         res.redirect('/')
     }
+    
 
 }
 module.exports = loginController
