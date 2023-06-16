@@ -110,6 +110,15 @@ hr {
   align-items: center;
 }
 
+.search-user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+  width: 50%;
+}
+
+
 .search-form_input {
   border: solid 1px var(--light-gray);
   display: block;

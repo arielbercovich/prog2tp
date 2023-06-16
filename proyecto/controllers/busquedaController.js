@@ -52,15 +52,8 @@ let busquedaController = {
     
     showUserProfile: function(req, res) {
       let user = req.params.id;
-    
-      // Lógica para obtener los datos del usuario y renderizar la vista correspondiente
-      // ...
-    
       res.render('search-users', { results: [user] });
     },
-    
-    
-    // Resto de tu código de controlador...
-    
+
 };
 module.exports = busquedaController;

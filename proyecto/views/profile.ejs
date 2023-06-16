@@ -16,43 +16,47 @@
 </head>
 <body>
 	<!-- Header -->
-	<% if (locals.user.usuario !== undefined) {%>
-		<%- include('partials/headerLogueado') %>
 
+	<% if (loggedInUser) { %>
+		<%- include('partials/headerLogueado', { user: loggedInUser }) %>
 	<% } else { %>
 		<%- include('partials/header') %>
-
 	<% } %>
-	<!-- /Header -->
-
-	<!-- Datos del usuario -->
-	<section class="info-usuario container products-wrapper">
-		<div class="row">
-			<div class="data-container col-6">
-				<div class="d-flex align-items-center ">
-					<img class="foto-perfil"src="<%= user.info_foto %>" alt="FotoProfile">
-					<h1 class="main-title"> <%= user.usuario %>
-						<a href="/login/profile-edit">
-							<i class="fas fa-cog"></i>
-						</a>
-					</h1>
-					
-				</div>
-				<div>
-					<ul class="info-usuario">
-						<li>DNI: <%= user.dni %></li>
-						<li>Email: <%= user.email %></li>
-						<li>Fecha de nacimiento: <%= user.fecha %></li>
-						<li>El usuario cargo: <%= user.producto.length%> productos</li>
-					</ul>
-				</div>
-			</div>
+  <!-- /Header -->
+  
+  <!-- /Header -->
+  
+  <!-- /Header -->
+  
+  <!-- Datos del usuario -->
+<section class="info-usuario container products-wrapper">
+	<div class="row">
+	  <div class="data-container col-6">
+		<div class="d-flex align-items-center ">
+		  <img class="foto-perfil" src="<%= user.info_foto %>" alt="FotoProfile">
+		  <h1 class="main-title"> <%= user.usuario %>
+			<% if (loggedInUser && isOwnProfile) { %>
+			  <a href="/login/profile-edit">
+				<i class="fas fa-cog"></i>
+			  </a>
+			<% } %>
+		  </h1>
 		</div>
-	</section>
-	<!-- /Datos del usuario -->
-
-	<!-- Mis productos -->
-	<div class="container products-wrapper">
+		<div>
+		  <ul class="info-usuario">
+			<li>DNI: <%= user.dni %></li>
+			<li>Email: <%= user.email %></li>
+			<li>Fecha de nacimiento: <%= user.fecha %></li>
+			<li>El usuario cargó <%= user.producto.length %> productos</li>
+		  </ul>
+		</div>
+	  </div>
+	</div>
+  </section>
+  <!-- /Datos del usuario -->
+  
+	  <!-- Show mis productos -->
+	  <div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Jugadores añadidos por <%=user.usuario%></h2>
@@ -62,11 +66,8 @@
 					<% for (let i = 0; i < user.producto.length; i++) { %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					
-
 							<a href="/productos/id/<%= user.id_usuario %>">
 						</a>
-					  
 						<div class="contenedor-imagen">
 							<a href='/productos/id/<%=user.producto[i].id%>'>
 							<img class="product-box_image"src="<%= user.producto[i].foto %>" alt="Jugador">
@@ -75,20 +76,12 @@
 						<article class="product-box_data">
 							<h2><%= user.producto[i].nombre_producto %></h2> 
 							 <p><%= user.producto[i].detalle %></p>
-
-
-							 
-							
 						</article>
 					</a>
 				</section>
 			</div>
 					<% } %>
 				<% } %>
-			
-	<!-- /Mis productos -->
-
-
 	<!-- footer -->
 	<%- include('partials/footer') %>
 	<!-- /footer -->

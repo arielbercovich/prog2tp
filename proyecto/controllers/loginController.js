@@ -13,24 +13,33 @@ let loginController = {
             return res.render('login')
         }
     },
-    profile: function (req, res) {
-  db.Usuario.findOne({
-    where: { id: req.params.id },
-    include: [
-      { association: 'comentario' },
-      {
-        association: 'producto',
-        order: [['createdAt', 'ASC']]
-      }
-    ]
-  })
-    .then(function (user) {
-      return res.render('profile', { user: user });
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-},
+    profile: function(req, res) {
+        let loggedInUser = req.session.user;
+      
+        db.Usuario.findOne({
+          where: { id: req.params.id },
+          include: [
+            { association: 'comentario' },
+            {association: 'producto', order: [['createdAt', 'ASC']]}
+          ]
+        })
+        .then(function(user) {
+            let isOwnProfile = false;
+
+            if (loggedInUser && loggedInUser.id === user.id) {
+              // El usuario en sesión es el mismo que está viendo el perfil
+              isOwnProfile = true;
+            }
+          
+            return res.render('profile', { user: user, isOwnProfile: isOwnProfile, loggedInUser: loggedInUser });
+        })
+        
+        .catch(function(error) {
+          console.log(error);
+        });
+      },
+      
+      
 
     profileEdit: function (req, res) {
         if (req.session.user == undefined) {
