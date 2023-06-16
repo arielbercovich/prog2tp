@@ -1,7 +1,4 @@
-let db = require('../db/productos.js');
-let dbA = require('../db/prod.js')
 let modelos = require('../database/models');  // Chequear
-const prod = require('../db/prod.js');
 let { Op }  = modelos.Sequelize;
 
 
@@ -58,12 +55,6 @@ let productController = {
             ]
         })
         .then(function(producto){
-          // return res.send(producto)
-                // for(let i =0; i<producto.comentario.length; i++){
-                // modelos.Usuario.findByPk(producto.comentario[i].id_usuario)
-                // }
-                // return res.send(producto)
-
                 return res.render("product", {producto: producto}) 
               })
         .catch(function (error) {

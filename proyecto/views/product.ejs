@@ -57,7 +57,7 @@
 							  <h2>No podes borrar o editar el perfil de este jugador ya que no lo publicaste vos </h2>
 							<% } %>
 						  <% } else { %>
-							<h2>Para poder borrar o editar el perfil de un jugador, debes iniciar sesión.</h2>
+							<h2> ¡Inicia sesión en Mercado de Pases para comentar, borrar o editar el perfil de un jugador!</h2>
 						  <% } %>
 						  
 						  
@@ -65,35 +65,42 @@
 
 
 				
-					<div class="col-12 col-lg-4">
-					  <section class="comments">
-							<h2>Comentarios:</h2>
-							<% for (let i=0; i< producto.comentario.length; i ++) { %>
-								<article>
-									<img src="<%= producto.comentario[i].usuario.info_foto %>">
-									<div class="data">
-										<p class="user">
-										<strong> <a href="/login/profile/<%=producto.comentario[i].id_usuario%>"><%= producto.comentario[i].usuario.usuario %>: </a> </strong>
+				<div class="col-12 col-lg-4">
+					<section class="comments">
+						<h2>Comentarios:</h2>
+						<!-- se agregó este for para recorrer producto.comentario desde el ultimo (el coment mas reciente) -->
+						<% for (let i = producto.comentario.length - 1; i >= 0; i--) { %>
+							<article>
+								<img src="<%= producto.comentario[i].usuario.info_foto %>">
+								<div class="data">
+									<p class="user">
+										<strong>
+											<a href="/login/profile/<%= producto.comentario[i].id_usuario %>">
+												<%= producto.comentario[i].usuario.usuario %>
+											</a>
+										</strong>
 										<%= producto.comentario[i].texto_comentario %>
-								
-										</p>
-									</div>
-								</article>	
-								<% } %>
-						  </div>
-						</article>
-					  </section>
-					</div>
+									</p>
+								</div>
+							</article>    
+						<% } %>
+					</section>
+				</div>
+				
 				  
 				  
 
 				
 					</section>
+					<% if (locals.user) { %>
 					<form class="form" action="/productos/id/<%= producto.id %>" method='POST'>
 
 						<input class="form-input" type="text" value="" name = "comentario" placeholder="Agregar comentario" >
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
+					<% } else { %>
+						<h2></h2>
+					  <% } %>
 					<hr>
 				</div>
 			</div>

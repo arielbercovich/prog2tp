@@ -1,32 +1,53 @@
-<% if (locals.user != undefined) {%>
-	<%- include('partials/headerLogueado') %>
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<head>
 
-<% } else { %>
-	<%- include('partials/header') %>
 
-<% } %>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link width="" rel="shortcut icon" href="./images/logo-mercado-liebre.jpg" />
+	
+	<title> Mercado Liebre Argentina</title>
+			<!-- Font Awesome Stylesheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+	<!-- Bootstrap Grid Stylesheet -->
+	<link rel="stylesheet" href="./css/bootstrap-grid.min.css">
+	<!-- Own Stylesheet -->
+	<link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
 
+	<% if (locals.user != undefined) {%>
+		<%- include('partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('partials/header') %>
+	<% } %>
+	
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
 		  <div class="col-12">
-			<h1 class="products-title">Resultado de búsqueda:</h1>
+			<h2 class="col-12"> <i><br>
+			<% if (locals.errors){ %>
+				<p>	<%= locals.errors.mensaje %></p>
+				<% }%></h2>
 			<% for (let i = 0; i < results.length; i++) { %>
 			  <article class="product-box_data">
+				<img src='<%= results[i].info_foto%>' class='foto-perfil' />
 				<a href="/login/profile/<%= results[i].id %>"> 
-				<li>Email usuario:<%= results[i].email %></li>
-				<li>Nombre usuario: <%= results[i].usuario %></li>
-			</a>
+				  <li class="main-title">Email: <%= results[i].email %></li>
+				  <li class="main-title">Usuario: <%= results[i].usuario %></li>
+				</a>
 			  </article>
 			<% } %>
 		  </div>
 		</div>
-	  </div>
-	  
-			<!-- Show the "ultimos" products -->
-
-
-
+	</div>
+	
+	<%- include('./partials/footer') %> 
 	
 
-	<%- include('./partials/footer') %>
+</body>
+
+</html>

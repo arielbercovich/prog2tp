@@ -32,28 +32,30 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<!-- <h2 class="products-title">Resultados de búsqueda</h2> -->
+			
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> <i><br> 
-				<% if (locals.errors){ %>
-					<p>	<%= locals.errors.mensaje %></p>
-					<% }%>				
-				<%for (let i=0; i<results.length; i++){ %>
+				<% if (locals.errors) { %>
+				  <p><%= locals.errors.mensaje %></p>
+				<% } %>
+			  
+				<% for (let i = 0; i < results.length; i++) { %>
+				  <figure class="product-box_image">
+					<a href="/productos/id/<%= results[i].id %>">
+					  <img src="<%= results[i].foto %>" alt="<%= results[i].nombre_producto %>" />
+					</a> 	
+				  </figure>
+			  
+			
+					
+					<h2 class="products-title"><%= results[i].nombre_producto %></h2>
+					<h3><a href="/login/profile/<%= results[i].usuario.id %>">Jugador subido por: <%= results[i].usuario.usuario %></h3></a>
+					
 				
-					<figure class="product-box_image">
-						<a href="/productos/id/<%=results[i].id%>"> <img src="<%=results[i].foto%>" alt="<%= results[i].nombre_producto%>" /></a> 	
-					</figure>
-
-					<article class="product-box_data">
-						<h2><%=results[i].nombre_producto%></h2>
-					</article>
-				</a>
-				<%}%>
-
-				
-
-			</h2>
+				<% } %>
+			  </h2>
+			  
 
 
 	<!-- footer -->
