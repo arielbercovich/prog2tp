@@ -162,8 +162,12 @@ let loginController = {
         req.session.destroy();
         res.clearCookie('cookieRecordacion')
         res.redirect('/')
+    },
+    search: function(req,res) {
+        let bus= req.query.search;
+
+        
     }
-    
 
 }
 module.exports = loginController
