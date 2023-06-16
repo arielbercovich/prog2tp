@@ -40,8 +40,14 @@
 				<article class="col-12 col-lg-8 product-detail-info">
 
 					<img src="<%= producto.foto %>" alt="" class="product-detail-img">
-					<h3><a href="/login/profile/<%= producto.id_usuario %>">Jugador subido por:
-						<%= producto.usuario.usuario %> </h3> </a>
+					<% if (locals.user) { %>
+						<h3><a href="/login/profile/<%= producto.id_usuario %>">Jugador subido por:
+						  <%= producto.usuario.usuario %></a></h3>
+					  <% } else { %>
+						<h3>Jugador subido por: <%= producto.usuario.usuario %></h3>
+						<p>Inicia sesión para ver el perfil completo de  <%= producto.usuario.usuario %></p>
+					  <% } %>
+					  
 						
 						<h2>Descripción:</h2>
 					<p class="product-detail-description"><%= producto.descripcion %></p>

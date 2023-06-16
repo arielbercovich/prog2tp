@@ -45,8 +45,7 @@ let loginController = {
         }
     },
     
-    edit: function (req, res) {
-        //detectar errores de los datos del usuairo en el form 
+    edit: function (req, res) { 
         let errores = {}
         if (req.body.usuario == '') {
             errores.message = "El nombre de usuario es obligatorio"
@@ -60,14 +59,6 @@ let loginController = {
             errores.message = "La contraseña es obligatoria"
             res.locals.errores = errores
             return res.render('profile-edit');
-        } else if (req.body.contrasena.length < 3) {
-            errores.message = "La contraseña tiene que tener al menos 3 caracteres" 
-            res.locals.errores = errores
-            return res.render('profile-edit');
-        } else if (req.body.contrasenaAnterior == '') {
-            errores.message = "Escriba su contraseña anterior" 
-            res.locals.errores = errores
-            return res.render('profile-edit');
         } else {
             db.Usuario.findOne({
                     where: [{
@@ -76,13 +67,12 @@ let loginController = {
                 })
                 .then(function (user) {
                     if (user) {
-                        //chequear que la contrasena anterior es correcta 
                         let compare = bcrypt.compareSync(req.body.contrasenaAnterior, user.contrasena)
                         if (compare) {
                             let user = {
                                 email: req.body.email,
                                 usuario: req.body.usuario,
-                                contrasena: bcrypt.hashSync(req.body.contrasena, 10), //vamos a hashear la contrasena que viene del form
+                                contrasena: bcrypt.hashSync(req.body.contrasena, 10), 
                                 fecha: req.body.fecha,
                                 documento: req.body.dni,
                                 foto: req.body.foto
